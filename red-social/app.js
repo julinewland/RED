@@ -9,6 +9,27 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
+let rutaAgregarPost = require("./routes/agregarPost");
+app.use("/agregarPost", rutaAgregarPost);
+
+let rutaDetallePost = require("./routes/detallePost.js");
+app.use("/detallePost", rutaDetallePost);
+
+let rutaDetalleUsuario = require("./routes/detalleUsuario.js");
+app.use("/detalleUsuario", rutaDetalleUsuario);
+
+let rutaLogin = require("./routes/login.js");
+app.use("/login", rutaLogin);
+
+let rutaMiPerfil = require("./routes/miPerfil");
+app.use("/miPerfil", rutaMiPerfil);
+
+let rutaRegistracion = require("./routes/registracion");
+app.use("/registracion", rutaRegistracion);
+
+let rutaResultado = require ("./routes/resultado");
+app.use("/Resultado", rutaResultado);
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
