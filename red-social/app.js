@@ -9,11 +9,8 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
-let rutaAgregarPost = require("./routes/agregarPost");
-app.use("/agregarPost", rutaAgregarPost);
-
-let rutaDetallePost = require("./routes/detallePost.js");
-app.use("/detallePost", rutaDetallePost);
+let rutaPost = require("./routes/post");
+app.use("/post", rutaPost);
 
 let rutaDetalleUsuario = require("./routes/detalleUsuario.js");
 app.use("/detalleUsuario", rutaDetalleUsuario);
