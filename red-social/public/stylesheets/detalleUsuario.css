@@ -16,3 +16,53 @@
     color: gray;
     text-decoration: none;
 }
+
+
+h3.uk-margin-remove{
+    font-family: Nunito;
+    font-weight: 600;
+    color: #cfff04;
+}
+
+button.uk-button{
+    color: #cfff04;
+    border-color: #cfff04;
+    background-color: rgb(12, 22, 10);
+    border: solid;
+    font-size: 13.3px;
+    padding: 10px;
+}
+
+button.uk-button:hover{
+    color: rgb(12, 22, 10);
+    background-color: #cfff04;
+    border: solid;
+}
+
+div ul li{
+    color: #cfff04;
+    border-left: #cfff04;
+}
+
+.posteo:hover{
+    border: 3px solid #cfff04;
+    color: #cfff04;
+}
+
+.posteo p{
+    color: #cfff04;
+}
+
+img.publicaciones{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+img.foto-perfil{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+

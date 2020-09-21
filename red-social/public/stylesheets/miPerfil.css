@@ -16,3 +16,60 @@
     color: gray;
     text-decoration: none;
 }
+
+h3.uk-margin-remove{
+    font-family: Nunito;
+    font-weight: 600;
+}
+
+.info-usuario .foto-perfil{
+    border-radius: 50%;
+}
+
+.info-usuario .red-usuario{
+    list-style: none;
+    padding: 0  ;
+}
+
+.muro{
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid lightgray;
+}
+.muro .link-detalle{
+    color: gray;
+    text-decoration: none;
+}
+
+
+h3.uk-margin-remove{
+    font-family: Nunito;
+    font-weight: 600;
+    color: #cfff04;
+}
+
+div ul li{
+    color: #cfff04;
+    border-left: #cfff04;
+}
+
+.posteo:hover{
+    border: 3px solid #cfff04;
+    color: #cfff04;
+}
+
+.posteo p{
+    color: #cfff04;
+}
+
+img.publicaciones{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+img.foto-perfil{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}

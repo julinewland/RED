@@ -1,0 +1,95 @@
+
+.formlabel label {
+    display: block;
+
+}
+  
+  div.contenedor{
+    width: 450px;
+    margin: 0 auto;
+    margin-top: 100PX;
+    border-color: #cfff04;
+    margin-bottom: 100px;
+  }
+
+  div h1{
+      color: #cfff04;
+      font-family: Nunito;
+  }
+  
+  .form-group{
+    padding-bottom: 10px;
+  }
+  
+  .form-group label{
+    color: #cfff04;
+    font-size: 15px;
+  } 
+
+  input{
+    background-color: #cfff04;
+    border-color: rgb(0, 0, 0);
+    padding: 15px;
+    border: 2px;
+    width: 100%;
+  }
+  
+  .select{
+    margin-top: 30px;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+  }
+  
+  .select button:hover{
+    color: rgb(12, 22, 10);
+    background-color: #cfff04;
+    border: solid;
+  }
+  
+  ::placeholder{
+    color: rgb(12, 22, 10);
+  }
+  
+  .contenedor{
+    border-color: #cfff04;
+    border: solid;
+    padding: 20px;
+  }
+  
+  .select button{
+    color: #cfff04;
+    border-color: #cfff04;
+    background-color: rgb(12, 22, 10);
+    border: solid;
+    font-size: 13.3px;
+    padding: 15px;
+    margin-right: 0px;
+    margin-top: 10PX;
+  }
+  
+  .select input:hover{
+    color: #cfff04;
+    border-color: #cfff04;
+    background-color: rgb(12, 22, 10);
+    border: solid;
+  }
+  
+  h1{
+    margin-top: 5px;
+  }
+  
+  .select a{
+    display: inline;
+    font-size: 13px;
+    color: #cfff04;
+    margin-right: 2px;
+    padding-top: 47px;
+  }
+  
+  .button {
+    justify-content: space-between;
+    display: flex;
+  }
+
+ 

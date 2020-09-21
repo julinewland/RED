@@ -7,12 +7,12 @@ article.post{
 article.post div.info-usuario{
     padding: 10px;
     border-bottom: 1px solid lightgray;
-    margin-bottom: 5px;
+    background-color: rgb(12, 22, 10);
 }
 article.post div.info-usuario img{
     border-radius: 50px;
     padding: 1px;
-    border: 1.5px solid red;
+    border: 1.5px solid #cfff04;
 }
 article.post div.info-usuario h4{
    margin: 8px 10px;
@@ -23,10 +23,19 @@ article.post div.post-body{
     border-bottom: 1px solid lightgray;
 }
 
+article.post div.post-reacciones{
+    
+}
+
+.vermas{
+    color: #cfff04;
+}
+
 article.post div.post-reacciones ul.post-icons{
-    padding-top: 5px;
+    padding-top: 20px;
     padding-right: 30px;
     list-style-type: none;
+    color: #cfff04;
 }
 
 article.post div.post-reacciones div.post-pie{
@@ -40,25 +49,67 @@ article.post div.post-reacciones div.post-pie p{
     margin: 0;
 }
 article.post div.post-comentarios {
-    margin-top: 10px;
-    margin-left: 20px;
+    padding-top: 10px;
+    padding-left: 20px;
 }
 article.post div.post-comentarios h6{
     margin-bottom: 0;
+    color: #cfff04;
+    font-family: Nunito;
 }
 article.post div.post-comentarios ul{
     list-style: none;
-    margin-top: 5px
+    padding-bottom: 5px;
+    margin-bottom: 0px;
 }
 article.post div.post-comentarios ul li{
     display: flex;
+    color: #cfff04;
 }
 article.post div.post-comentarios ul li a{
-    color: black;
+    color: #cfff04;
     font-weight: bolder;
     text-decoration: none;
 }
+
 article.post div.post-comentarios ul li p{
     margin: 0 5px;
 }
 
+.info-usuario a h4{
+    font-family: Nunito;
+    font-weight: 600;
+}
+
+article.post{
+    border: 4px solid #cfff04;
+    border-radius: 0px;
+    margin-bottom: 40px;
+}
+
+div.info-usuario.uk-flex h4{
+    color: #cfff04;
+}
+
+div.post-reacciones{
+    background-color: rgb(12, 22, 10);
+}
+
+div.post-reacciones h5{
+    color: #cfff04;
+}
+
+div.post-reacciones p{
+    color: #cfff04;
+}
+
+
+div.post-comentarios{
+    background-color: rgb(12, 22, 10);
+}
+
+img.perfil{
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+}

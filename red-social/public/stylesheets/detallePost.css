@@ -5,6 +5,8 @@ article.detalle-post{
     /* border-right: 1px solid lightgray; */
 }
 
+
+
 article.detalle-post .imagen-post{
 
 }
@@ -60,6 +62,10 @@ article.detalle-post .imagen-post{
     color: black;
     text-decoration: none;
     margin-right: 4px !important;
+}
+
+div.red-usuario ul li{
+    color: #cfff04;
 }
 
 

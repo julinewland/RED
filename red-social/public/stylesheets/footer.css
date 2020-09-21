@@ -1,7 +1,13 @@
 footer{
     height: 40px;
-    color: white;
+    background-color: #cfff04;
+    color: black;
     padding: 0 10px;
+}
+
+footer.uk-background-primary{
+    background-color: #cfff04;
+    padding: 15px;
 }
 
 footer ul{
