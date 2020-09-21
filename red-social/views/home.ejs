@@ -1,43 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
-    <header class="uk-background-primary">
-        <section class=" uk-container uk-container-large">
-            <div class="">
-                <nav class="" uk-navbar>
-                    <div class="uk-navbar-left">
-                        <h2 class="logo"><a href="home.ejs">FalseBook</a></h2>
-                    </div>
-                    <div class="uk-navbar-center">
-                        <ul class="uk-flex uk-flex-between uk-flex-middle">
-                            <li><a href="home.ejs">Home</a></li>
-                            <li><a href="agregarPost.ejs">Postear</a></li>
-                            <li><a href="registracion">Registración</a></li>
-                            <li><a href="login.ejs">Login</a></li>
-                        </ul>
-                    </div>
-                    <div class="uk-navbar-right">
-                        <ul class="uk-flex uk-flex-between uk-flex-middle">
-                            <li>
-                                <form action="" class="uk-search uk-search-default">
-                                    <span uk-search-icon></span>
-                                    <input type="search" class="uk-search-input" placeholder="Buscar...">
-                                </form>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-        </section>
-    </header>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FalseBook</title>
-    <link rel="icon"
-        href="https://w7.pngwing.com/pngs/624/811/png-transparent-computer-icons-facebook-social-media-f-logo-cross-brand.png"
-        type="image/x-icon">
+    <title>The Network</title>
+    <link rel="icon"  href="/images/favicon.ico" type="image/icon type">
 
     <link rel="stylesheet" href="/stylesheets/home.css">
     <link rel="stylesheet" href="/stylesheets/header.css">
@@ -59,35 +26,7 @@
 </head>
 
 <body>
-    <header class="uk-background-primary">
-        <section class=" uk-container uk-container-large">
-            <div class="">
-                <nav class="" uk-navbar>
-                    <div class="uk-navbar-left">
-                       <h2 class="logo"><a href="home.ejs">FalseBook</a></h2>
-                    </div>
-                    <div class="uk-navbar-center">
-                        <ul class="uk-flex uk-flex-between uk-flex-middle">
-                            <li><a href="home.ejs">Home</a></li>
-                            <li><a href="agregarPost.ejs">Postear</a></li>
-                            <li><a href="miPerfil.ejs">Perfil</a></li>
-                        </ul>
-                    </div>
-                    <div class="uk-navbar-right">
-                        <ul class="uk-flex uk-flex-between uk-flex-middle">
-                            <li>
-                                <form action="" class="uk-search uk-search-default">
-                                    <span uk-search-icon></span>
-                                    <input type="search" class="uk-search-input" placeholder="Buscar...">
-                                </form>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-        </section>
-    </header>
-
+    <%- include("headerLogueado")%>
     <main>
         <div class="uk-section uk-section-small">
             <div class="uk-container uk-container-large uk-flex">
@@ -95,13 +34,12 @@
                     <article class="post uk-card-default uk-flex uk-flex-column">
                         <div class="info-usuario uk-flex ">
                             <div>
-                                <img src="https://via.placeholder.com/40" alt="">
+                                <img src="/images/users/1.jpeg" alt="" class="perfil">
                             </div>
-                            <h4>Usuario</h4>
-                            
+                            <a href="/detalleUsuario/1"><h4>Marian_martinez</h4></a>                            
                         </div>
                         <div class="post-body uk-flex uk-flex-center">
-                            <img src="https://via.placeholder.com/500x600" alt="">
+                            <img src="/images/gamer-1.jpeg" class="publicaciones" alt="">
                         </div>
                         <div class="post-reacciones">
                             <ul class="post-icons uk-flex uk-flex-between">
@@ -111,20 +49,58 @@
                                 </li>
                             </ul>
                             <div class="post-pie uk-flex">
-                                <h5 class="uk-width-1-6">Usuario</h5>
-                                <p class="uk-width-5-6">Pie de post</p>
+                                <h5 class="uk-width-1-6">Marian_martinez</h5>
+                                <p class="uk-width-5-6">Nuevo monitor</p>
                             </div>
                         </div>
                         <div class="post-comentarios">
                             <h6>Comentarios</h6>
                             <ul>
                                 <li>
-                                    <a href="">Usuario</a>
-                                    <p>Comentario</p>
+                                    <a href="/detalleUsuario/1">Juancho123</a>
+                                    <p>Felicitaciones!!</p>
                                 </li>
                                 <li>
-                                    <a href="">Usuario</a>
-                                    <p>Comentario</p>
+                                    <a href="/detalleUsuario/1">Martina-gomez</a>
+                                    <p>Tremendo!</p>
+                                </li>
+                                <a class="vermas" href="">Ver más...</a>
+                            </ul>
+                        </div>
+                    </article>
+                    <article class="post uk-card-default uk-flex uk-flex-column">
+                        <div class="info-usuario uk-flex ">
+                            <div>
+                                <img src="/images/users/2.jpeg" alt="" class="perfil">
+                            </div>
+                            <a href="/detalleUsuario/1"><h4>JuliSalazar</h4></a>
+                            
+                        </div>
+                        <div class="post-body uk-flex uk-flex-center">
+                            <img src="/images/gamer-2.jpeg" class="publicaciones" alt="">
+                        </div>
+                        <div class="post-reacciones">
+                            <ul class="post-icons uk-flex uk-flex-between">
+                                <li><span class="" uk-icon="icon:heart; ratio: 1.3"></span>
+                                </li>
+                                <li><span class="" uk-icon="icon:comments; ratio: 1.3"></span>
+                                </li>
+                            </ul>
+                            <div class="post-pie uk-flex">
+                                <h5 class="uk-width-1-6">JuliSalazar</h5>
+                                <p class="uk-width-5-6"><3<3<3></p>
+                            </div>
+                        </div>
+                        <div class="post-comentarios">
+                            <h6>Comentarios</h6>
+                            <ul>
+                                <li>
+                                    <a href="/detalleUsuario/1">Camille332</a>
+                                    <p>uff</p>
+                                </li>
+                                <li>
+                                    <a href="/detalleUsuario/1">Programer3345</a>
+                                    <p>Que buen lugar!</p>
                                 </li>
                                 <a href="">Ver más...</a>
                             </ul>
@@ -133,13 +109,13 @@
                     <article class="post uk-card-default uk-flex uk-flex-column">
                         <div class="info-usuario uk-flex ">
                             <div>
-                                <img src="https://via.placeholder.com/40" alt="">
+                                <img src="/images/users/3.jpeg" alt="" class="perfil">
                             </div>
-                            <h4>Usuario</h4>
+                            <a href="/detalleUsuario/1"><h4>MeryLopez</h4></a>
                             
                         </div>
                         <div class="post-body uk-flex uk-flex-center">
-                            <img src="https://via.placeholder.com/500x600" alt="">
+                            <img src="/images/gamer-3.jpeg" class="publicaciones" alt="">
                         </div>
                         <div class="post-reacciones">
                             <ul class="post-icons uk-flex uk-flex-between">
@@ -149,20 +125,16 @@
                                 </li>
                             </ul>
                             <div class="post-pie uk-flex">
-                                <h5 class="uk-width-1-6">Usuario</h5>
-                                <p class="uk-width-5-6">Pie de post</p>
+                                <h5 class="uk-width-1-6">MeryLopez</h5>
+                                <p class="uk-width-5-6">:)</p>
                             </div>
                         </div>
                         <div class="post-comentarios">
                             <h6>Comentarios</h6>
                             <ul>
                                 <li>
-                                    <a href="">Usuario</a>
-                                    <p>Comentario</p>
-                                </li>
-                                <li>
-                                    <a href="">Usuario</a>
-                                    <p>Comentario</p>
+                                    <a href="/detalleUsuario/1">NatyLopez</a>
+                                    <p>Quiero unooo</p>
                                 </li>
                                 <a href="">Ver más...</a>
                             </ul>
@@ -171,13 +143,12 @@
                     <article class="post uk-card-default uk-flex uk-flex-column">
                         <div class="info-usuario uk-flex ">
                             <div>
-                                <img src="https://via.placeholder.com/40" alt="">
+                                <img src="/images/users/1.jpeg" alt="" class="perfil">
                             </div>
-                            <h4>Usuario</h4>
-                            
+                            <a href="/detalleUsuario/1"><h4>Marian_martinez</h4></a>
                         </div>
                         <div class="post-body uk-flex uk-flex-center">
-                            <img src="https://via.placeholder.com/500x600" alt="">
+                            <img src="/images/detalle.jpeg" class="publicaciones" alt="">
                         </div>
                         <div class="post-reacciones">
                             <ul class="post-icons uk-flex uk-flex-between">
@@ -187,20 +158,16 @@
                                 </li>
                             </ul>
                             <div class="post-pie uk-flex">
-                                <h5 class="uk-width-1-6">Usuario</h5>
-                                <p class="uk-width-5-6">Pie de post</p>
+                                <h5 class="uk-width-1-6">Marian_martinez</h5>
+                                <p class="uk-width-5-6">:)</p>
                             </div>
                         </div>
                         <div class="post-comentarios">
                             <h6>Comentarios</h6>
                             <ul>
                                 <li>
-                                    <a href="">Usuario</a>
-                                    <p>Comentario</p>
-                                </li>
-                                <li>
-                                    <a href="">Usuario</a>
-                                    <p>Comentario</p>
+                                    <a href="/detalleUsuario/1">Programer3345</a>
+                                    <p>fuaa</p>
                                 </li>
                                 <a href="">Ver más...</a>
                             </ul>
@@ -209,13 +176,13 @@
                     <article class="post uk-card-default uk-flex uk-flex-column">
                         <div class="info-usuario uk-flex ">
                             <div>
-                                <img src="https://via.placeholder.com/40" alt="">
+                                <img src="/images/users/4.jpeg" alt="" class="perfil">
                             </div>
-                            <h4>Usuario</h4>
+                            <a href="/detalleUsuario/1"><h4>MartinGalincez</h4></a>
                             
                         </div>
                         <div class="post-body uk-flex uk-flex-center">
-                            <img src="https://via.placeholder.com/500x600" alt="">
+                            <img src="/images/gamer-4.jpeg" class="publicaciones" alt="">
                         </div>
                         <div class="post-reacciones">
                             <ul class="post-icons uk-flex uk-flex-between">
@@ -225,20 +192,20 @@
                                 </li>
                             </ul>
                             <div class="post-pie uk-flex">
-                                <h5 class="uk-width-1-6">Usuario</h5>
-                                <p class="uk-width-5-6">Pie de post</p>
+                                <h5 class="uk-width-1-6">MartinGalincez</h5>
+                                <p class="uk-width-5-6">Volandoo</p>
                             </div>
                         </div>
                         <div class="post-comentarios">
                             <h6>Comentarios</h6>
                             <ul>
                                 <li>
-                                    <a href="">Usuario</a>
-                                    <p>Comentario</p>
+                                    <a href="/detalleUsuario/1">Camille332</a>
+                                    <p>Quiero unoo</p>
                                 </li>
                                 <li>
-                                    <a href="">Usuario</a>
-                                    <p>Comentario</p>
+                                    <a href="/detalleUsuario/1">Juancho123</a>
+                                    <p>Tremendoo</p>
                                 </li>
                                 <a href="">Ver más...</a>
                             </ul>
@@ -247,13 +214,13 @@
                     <article class="post uk-card-default uk-flex uk-flex-column">
                         <div class="info-usuario uk-flex ">
                             <div>
-                                <img src="https://via.placeholder.com/40" alt="">
+                                <img src="/images/users/5.jpeg" alt="" class="perfil">
                             </div>
-                            <h4>Usuario</h4>
+                            <a href="/detalleUsuario/1"><h4>PanchoTrotti</h4></a>
                             
                         </div>
                         <div class="post-body uk-flex uk-flex-center">
-                            <img src="https://via.placeholder.com/500x600" alt="">
+                            <img src="/images/gamer-5.jpeg" class="publicaciones" alt="">
                         </div>
                         <div class="post-reacciones">
                             <ul class="post-icons uk-flex uk-flex-between">
@@ -263,20 +230,20 @@
                                 </li>
                             </ul>
                             <div class="post-pie uk-flex">
-                                <h5 class="uk-width-1-6">Usuario</h5>
-                                <p class="uk-width-5-6">Pie de post</p>
+                                <h5 class="uk-width-1-6">PanchoTrotti</h5>
+                                <p class="uk-width-5-6">Office</p>
                             </div>
                         </div>
                         <div class="post-comentarios">
                             <h6>Comentarios</h6>
                             <ul>
                                 <li>
-                                    <a href="">Usuario</a>
-                                    <p>Comentario</p>
+                                    <a href="/detalleUsuario/1">Marian_martinez</a>
+                                    <p>que buena oficina</p>
                                 </li>
                                 <li>
-                                    <a href="">Usuario</a>
-                                    <p>Comentario</p>
+                                    <a href="/detalleUsuario/1">juan_Suarez</a>
+                                    <p>Muy bueno</p>
                                 </li>
                                 <a href="">Ver más...</a>
                             </ul>
@@ -285,13 +252,13 @@
                     <article class="post uk-card-default uk-flex uk-flex-column">
                         <div class="info-usuario uk-flex ">
                             <div>
-                                <img src="https://via.placeholder.com/40" alt="">
+                                <img src="/images/users/6.jpeg" alt="" class="perfil">
                             </div>
-                            <h4>Usuario</h4>
+                            <a href="/detalleUsuario/1"><h4>NachoSuarez</h4></a>
                             
                         </div>
                         <div class="post-body uk-flex uk-flex-center">
-                            <img src="https://via.placeholder.com/500x600" alt="">
+                            <img src="/images/gamer-6.jpeg" class="publicaciones" alt="">
                         </div>
                         <div class="post-reacciones">
                             <ul class="post-icons uk-flex uk-flex-between">
@@ -301,58 +268,16 @@
                                 </li>
                             </ul>
                             <div class="post-pie uk-flex">
-                                <h5 class="uk-width-1-6">Usuario</h5>
-                                <p class="uk-width-5-6">Pie de post</p>
+                                <h5 class="uk-width-1-6">NachoSuarez</h5>
+                                <p class="uk-width-5-6">Techno time. Link en bio</p>
                             </div>
                         </div>
                         <div class="post-comentarios">
                             <h6>Comentarios</h6>
                             <ul>
                                 <li>
-                                    <a href="">Usuario</a>
-                                    <p>Comentario</p>
-                                </li>
-                                <li>
-                                    <a href="">Usuario</a>
-                                    <p>Comentario</p>
-                                </li>
-                                <a href="">Ver más...</a>
-                            </ul>
-                        </div>
-                    </article>
-                    <article class="post uk-card-default uk-flex uk-flex-column">
-                        <div class="info-usuario uk-flex ">
-                            <div>
-                                <img src="https://via.placeholder.com/40" alt="">
-                            </div>
-                            <h4>Usuario</h4>
-                            
-                        </div>
-                        <div class="post-body uk-flex uk-flex-center">
-                            <img src="https://via.placeholder.com/500x600" alt="">
-                        </div>
-                        <div class="post-reacciones">
-                            <ul class="post-icons uk-flex uk-flex-between">
-                                <li><span class="" uk-icon="icon:heart; ratio: 1.3"></span>
-                                </li>
-                                <li><span class="" uk-icon="icon:comments; ratio: 1.3"></span>
-                                </li>
-                            </ul>
-                            <div class="post-pie uk-flex">
-                                <h5 class="uk-width-1-6">Usuario</h5>
-                                <p class="uk-width-5-6">Pie de post</p>
-                            </div>
-                        </div>
-                        <div class="post-comentarios">
-                            <h6>Comentarios</h6>
-                            <ul>
-                                <li>
-                                    <a href="">Usuario</a>
-                                    <p>Comentario</p>
-                                </li>
-                                <li>
-                                    <a href="">Usuario</a>
-                                    <p>Comentario</p>
+                                    <a href="/detalleUsuario/1">MartinGalincez</a>
+                                    <p>Genio</p>
                                 </li>
                                 <a href="">Ver más...</a>
                             </ul>
@@ -364,32 +289,7 @@
             </div>
         </div>
     </main>
-
-    <footer class="uk-position-bottom uk-position-fixed uk-background-primary uk-flex uk-flex-between uk-flex-middle">
-        <ul class="uk-width-1-6 uk-flex uk-flex-middle uk-flex-around uk-height-1-1 uk-margin-remove uk-padding-remove">
-            <li><a href="" uk-icon="instagram"></a></li>
-            <li><a href="" uk-icon="facebook"></a></li>
-            <li><a href="" uk-icon="twitter"></a></li>
-        </ul>
-        <ul class="uk-width-1-3 uk-flex uk-flex-middle uk-flex-between uk-height-1-1 uk-margin-remove uk-padding-remove">
-            <li>Martin Hernandez</li>
-            <li>Lucia Perez</li>
-            <li>Gaston Sanchez</li>
-        </ul>
-    </footer>
-
-    <footer class="uk-background-primary uk-flex uk-flex-between uk-flex-middle">
-        <ul class="uk-width-1-6 uk-flex uk-flex-middle uk-flex-around uk-height-1-1 uk-margin-remove uk-padding-remove">
-            <li><a href="" uk-icon="instagram"></a></li>
-            <li><a href="" uk-icon="facebook"></a></li>
-            <li><a href="" uk-icon="twitter"></a></li>
-        </ul>
-        <ul class="uk-width-1-3 uk-flex uk-flex-middle uk-flex-between uk-height-1-1 uk-margin-remove uk-padding-remove">
-            <li>Martin Hernandez</li>
-            <li>Lucia Perez</li>
-            <li>Gaston Sanchez</li>
-        </ul>
-    </footer>
+    <%- include("footer")%>
 </body>
 
 </html>

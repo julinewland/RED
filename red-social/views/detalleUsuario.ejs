@@ -1,43 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
-    <header class="uk-background-primary">
-        <section class=" uk-container uk-container-large">
-            <div class="">
-                <nav class="" uk-navbar>
-                    <div class="uk-navbar-left">
-                        <h2 class="logo"><a href="home.ejs">FalseBook</a></h2>
-                    </div>
-                    <div class="uk-navbar-center">
-                        <ul class="uk-flex uk-flex-between uk-flex-middle">
-                            <li><a href="home.ejs">Home</a></li>
-                            <li><a href="agregarPost.ejs">Postear</a></li>
-                            <li><a href="miPerfil.ejs">Perfil</a></li>
-                        </ul>
-                    </div>
-                    <div class="uk-navbar-right">
-                        <ul class="uk-flex uk-flex-between uk-flex-middle">
-                            <li>
-                                <form action="" class="uk-search uk-search-default">
-                                    <span uk-search-icon></span>
-                                    <input type="search" class="uk-search-input" placeholder="Buscar...">
-                                </form>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-        </section>
-    </header>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FalseBook</title>
-    <link rel="icon"
-        href="https://w7.pngwing.com/pngs/624/811/png-transparent-computer-icons-facebook-social-media-f-logo-cross-brand.png"
-        type="image/x-icon">
-
+    <title>The Network</title>
+    <link rel="icon"  href="/images/favicon.ico" type="image/icon type">
     <link rel="stylesheet" href="/stylesheets/detalleUsuario.css">
     <link rel="stylesheet" href="/stylesheets/header.css">
     <link rel="stylesheet" href="/stylesheets/footer.css">
@@ -58,53 +25,24 @@
 </head>
 
 <body>
-    <header class="uk-background-primary">
-        <section class=" uk-container uk-container-large">
-            <div class="">
-                <nav class="" uk-navbar>
-                    <div class="uk-navbar-left">
-                        <h2 class="logo"><a href="home.ejs">FalseBook</a></h2>
-                    </div>
-                    <div class="uk-navbar-center">
-                        <ul class="uk-flex uk-flex-between uk-flex-middle">
-                            <li><a href="home.ejs">Home</a></li>
-                            <li><a href="addPost.ejs">Postear</a></li>
-                            <li><a href="registracion">Registración</a></li>
-                            <li><a href="login.ejs">Login</a></li>
-                        </ul>
-                    </div>
-                    <div class="uk-navbar-right">
-                        <ul class="uk-flex uk-flex-between uk-flex-middle">
-                            <li>
-                                <form action="" class="uk-search uk-search-default">
-                                    <span uk-search-icon></span>
-                                    <input type="search" class="uk-search-input" placeholder="Buscar...">
-                                </form>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-        </section>
-    </header>
-
+    <%- include("headerLogueado")%>
     <main>
         <div class="uk-section uk-section-small">
             <div class="uk-container uk-container-small">
                 <section class="info-usuario uk-flex uk-flex-around uk-width-1-1">
                     <div class="uk-width-1-3 uk-flex uk-flex-center uk-flex-middle">
-                        <img src="https://via.placeholder.com/150" alt="foto de perfil" class="foto-perfil">
+                        <img src="/images/users/1.jpeg" alt="foto de perfil" class="foto-perfil">
                     </div>
                     <div class="uk-width-2-3 uk-flex uk-flex-column uk-flex-around">
                         <div class="uk-flex uk-flex-middle">
-                            <h3 class="uk-margin-remove">Nombre de usuario</h3>
+                            <h3 class="uk-margin-remove">Marian_Martinez</h3>
                             <button class="uk-button uk-button-small uk-button-primary uk-margin-left">Seguir</button>
                         </div>
                         <div>
                             <ul class="red-usuario uk-flex uk-flex-between uk-width-1-2">
-                                <li>100 posts</li>
-                                <li>200 seguidores</li>
-                                <li>300 seguidos</li>
+                                <li>6 posts</li>
+                                <li>122 seguidores</li>
+                                <li>80 seguidos</li>
                             </ul>
                         </div>
                     </div>
@@ -113,40 +51,40 @@
 
                <section class="muro uk-flex uk-flex-middle uk-flex-center">
                     <div class="uk-grid uk-child-width-1-3 uk-width-1-1 uk-margin-remove" uk-grid>
-                        <div class="uk-card uk-card-hover uk-card-body uk-flex uk-flex-column uk-flex-middle uk-flex-center ">
+                        <div class="posteo uk-card uk-card-hover uk-card-body uk-flex uk-flex-column uk-flex-middle uk-flex-center ">
                             <a href="" class="link-detalle">
-                                <img src="https://via.placeholder.com/200" alt="foto de perfil" class="foto-perfil">
-                                <p class="uk-text-center">Lorem ipsum</p>
+                                <img src="/images/gamer-1.jpeg" alt="foto de perfil" class="publicaciones">
+                                <p class="uk-text-center">Nuevo Monitor!</p>
                             </a>
                         </div>
-                        <div class="uk-card uk-card-hover uk-card-body uk-flex uk-flex-column uk-flex-middle uk-flex-center ">
+                        <div class="posteo uk-card uk-card-hover uk-card-body uk-flex uk-flex-column uk-flex-middle uk-flex-center ">
                             <a href="" class="link-detalle">
-                                <img src="https://via.placeholder.com/200" alt="foto de perfil" class="foto-perfil">
-                                <p class="uk-text-center">Lorem ipsum</p>
+                                <img src="/images/detalle.jpeg" alt="foto de perfil" class="publicaciones">
+                                <p class="uk-text-center">...</p>
                             </a>
                         </div>
-                        <div class="uk-card uk-card-hover uk-card-body uk-flex uk-flex-column uk-flex-middle uk-flex-center ">
+                        <div class="posteo uk-card uk-card-hover uk-card-body uk-flex uk-flex-column uk-flex-middle uk-flex-center ">
                             <a href="" class="link-detalle">
-                                <img src="https://via.placeholder.com/200" alt="foto de perfil" class="foto-perfil">
-                                <p class="uk-text-center">Lorem ipsum</p>
+                                <img src="/images/detalle2.jpeg" alt="foto de perfil" class="publicaciones">
+                                <p class="uk-text-center">Fiel Compañero</p>
                             </a>
                         </div>
-                        <div class="uk-card uk-card-hover uk-card-body uk-flex uk-flex-column uk-flex-middle uk-flex-center ">
+                        <div class="posteo uk-card uk-card-hover uk-card-body uk-flex uk-flex-column uk-flex-middle uk-flex-center ">
                             <a href="" class="link-detalle">
-                                <img src="https://via.placeholder.com/200" alt="foto de perfil" class="foto-perfil">
-                                <p class="uk-text-center">Lorem ipsum</p>
+                                <img src="/images/detalle3.jpeg" alt="foto de perfil" class="publicaciones">
+                                <p class="uk-text-center">inspiracion</p>
                             </a>
                         </div>
-                        <div class="uk-card uk-card-hover uk-card-body uk-flex uk-flex-column uk-flex-middle uk-flex-center ">
+                        <div class="posteo uk-card uk-card-hover uk-card-body uk-flex uk-flex-column uk-flex-middle uk-flex-center ">
                             <a href="" class="link-detalle">
-                                <img src="https://via.placeholder.com/200" alt="foto de perfil" class="foto-perfil">
-                                <p class="uk-text-center">Lorem ipsum</p>
+                                <img src="/images/detalle4.jpeg" alt="foto de perfil" class="publicaciones">
+                                <p class="uk-text-center">;)</p>
                             </a>
                         </div>
-                        <div class="uk-card uk-card-hover uk-card-body uk-flex uk-flex-column uk-flex-middle uk-flex-center ">
+                        <div class="posteo uk-card uk-card-hover uk-card-body uk-flex uk-flex-column uk-flex-middle uk-flex-center ">
                             <a href="" class="link-detalle">
-                                <img src="https://via.placeholder.com/200" alt="foto de perfil" class="foto-perfil">
-                                <p class="uk-text-center">Lorem ipsum</p>
+                                <img src="/images/detalle5.jpeg" alt="foto de perfil" class="publicaciones">
+                                <p class="uk-text-center">En barilocheee</p>
                             </a>
                         </div>
                     
@@ -157,33 +95,7 @@
             </div>
         </div>
     </main>
-
-    <footer class="uk-position-bottom uk-position-fixed uk-background-primary uk-flex uk-flex-between uk-flex-middle">
-        <ul class="uk-width-1-6 uk-flex uk-flex-middle uk-flex-around uk-height-1-1 uk-margin-remove uk-padding-remove">
-            <li><a href="" uk-icon="instagram"></a></li>
-            <li><a href="" uk-icon="facebook"></a></li>
-            <li><a href="" uk-icon="twitter"></a></li>
-        </ul>
-        <ul class="uk-width-1-3 uk-flex uk-flex-middle uk-flex-between uk-height-1-1 uk-margin-remove uk-padding-remove">
-            <li>Martin Hernandez</li>
-            <li>Lucia Perez</li>
-            <li>Gaston Sanchez</li>
-        </ul>
-    </footer>
-
-    <footer class="uk-background-primary uk-flex uk-flex-between uk-flex-middle">
-        <ul class="uk-width-1-6 uk-flex uk-flex-middle uk-flex-around uk-height-1-1 uk-margin-remove uk-padding-remove">
-            <li><a href="" uk-icon="instagram"></a></li>
-            <li><a href="" uk-icon="facebook"></a></li>
-            <li><a href="" uk-icon="twitter"></a></li>
-        </ul>
-        <ul class="uk-width-1-3 uk-flex uk-flex-middle uk-flex-between uk-height-1-1 uk-margin-remove uk-padding-remove">
-            <li>Martin Hernandez</li>
-            <li>Lucia Perez</li>
-            <li>Gaston Sanchez</li>
-        </ul>
-    </footer>
-
+    <%- include("footer")%>
 </body>
 
 </html>

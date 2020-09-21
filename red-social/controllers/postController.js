@@ -3,6 +3,8 @@ var post = {
         res.render("agregarPost")
     },
     detalle: function (req, res) {
+        var id = req.params.id
+        
         res.render("detallePost")
     }
 }

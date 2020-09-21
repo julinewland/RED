@@ -2,11 +2,6 @@ var express = require("express");
 var router = express.Router();
 let resultadoController = require("../controllers/resultadoController")
 
-router.get("/", resultadoController.vista);
-
-router.get("/prueba", resultadoController.prueba);
-
-router.get("/:busqueda", resultadoController.busqueda);
-
+router.get("/busqueda/:busq", resultadoController.busqueda);
 
 module.exports = router

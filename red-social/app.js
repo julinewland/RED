@@ -27,6 +27,9 @@ app.use("/registracion", rutaRegistracion);
 let rutaResultado = require ("./routes/resultado");
 app.use("/Resultado", rutaResultado);
 
+let rutaHome = require("./routes/home");
+app.use("/home", rutaHome)
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');

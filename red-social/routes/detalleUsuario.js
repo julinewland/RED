@@ -4,6 +4,6 @@ let detalleUController = require("../controllers/detalleUsuarioController")
 
 router.get("/prueba", detalleUController.prueba);
 
-router.get("/", detalleUController.vista)
+router.get("/:id", detalleUController.vista)
 
 module.exports = router;
