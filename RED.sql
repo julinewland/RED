@@ -1,1 +1,0 @@
-SELECT * FROM The_network.comentarios;
