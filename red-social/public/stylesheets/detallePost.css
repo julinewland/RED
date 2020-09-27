@@ -59,14 +59,41 @@ article.detalle-post .imagen-post{
 .comentarios-detalle .lista-comentarios .comentario h6 a{
     font-weight: bolder;
     font-size: 15px;
-    color: black;
+    color: #cfff04;
     text-decoration: none;
     margin-right: 4px !important;
 }
 
-div.red-usuario ul li{
+.foto-perfil h3{
     color: #cfff04;
 }
 
+.foto-perfil img{
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+}
 
+.lista-comentarios div h6{
+    color: #cfff04;
+}
 
+.comentarios-detalle.lista-comentarios.comentario div h6 a{
+    color: #cfff04;
+}
+
+.agregar-comentario button{
+    color: #cfff04;
+    border-color: #cfff04;
+    background-color: rgb(12, 22, 10);
+    border: solid;
+    font-size: 11px;
+    padding-right: 2px;
+    padding-left: 2px;
+}
+
+.agregar-comentario button:hover{
+    color: rgb(12, 22, 10);
+    background-color: #cfff04;
+    border: solid;
+}

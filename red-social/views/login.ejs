@@ -11,18 +11,7 @@
     <link rel="stylesheet" href="/stylesheets/footer.css">
     <link rel="stylesheet" href="/stylesheets/general.css">
 
-    <!-- UiKit -->
-    <!-- <link rel="stylesheet" href="css/uikit.min.css">
-    <script src="js/uikit-icons.min.js"></script>
-    <script src="js/uikit.min.js"></script> -->
-    <!-- UiKit -->
-
-    <!-- UIkit CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/css/uikit.min.css" />
-
-    <!-- UIkit JS -->
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit-icons.min.js"></script>
+    <%- include("links") %> 
 </head>
 
 
@@ -36,10 +25,10 @@
             <form action="/home" method="post">
             <div class="select">
               <div class="form-group">
-                      <label>Email o nombre de usuario</label>
+                      <label>Nombre de usuario</label>
               </div>
               <div class="form-group">
-                      <input type="email" class="form-control" name="username" placeholder="Tu email o usuario">
+                      <input type="email" class="form-control" name="username" placeholder="Usuario">
                   </div>
             </div>
             <div class="select">

@@ -38,3 +38,7 @@ div h2{
     font-family: Nunito;
     margin-left: 50px;
 }
+
+main{
+    height: 500px;
+}
