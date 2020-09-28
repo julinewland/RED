@@ -12,17 +12,8 @@ var app = express();
 let rutaPost = require("./routes/post");
 app.use("/post", rutaPost);
 
-let rutaDetalleUsuario = require("./routes/detalleUsuario.js");
-app.use("/detalleUsuario", rutaDetalleUsuario);
-
-let rutaLogin = require("./routes/login.js");
-app.use("/login", rutaLogin);
-
-let rutaMiPerfil = require("./routes/miPerfil");
-app.use("/miPerfil", rutaMiPerfil);
-
-let rutaRegistracion = require("./routes/registracion");
-app.use("/registracion", rutaRegistracion);
+let rutaUser = require("./routes/user.js");
+app.use("/user", rutaUser);
 
 let rutaResultado = require ("./routes/resultado");
 app.use("/Resultado", rutaResultado);
