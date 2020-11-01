@@ -1,5 +1,6 @@
 let db = require("../database/models/index")
 let op = db.Sequelize.Op;
+let bcrypt = require("bcryptjs")
 
 let user = {
 
@@ -23,6 +24,27 @@ let user = {
     
     regis: function (req, res) {
         res.render("registracion")
+    },
+
+    procesoLogin: function (req, res){
+
+        db.Usuario.findOne(
+            {
+                where: {
+                    [op.or]:[{email:  req.body.username}, {nombre: req.body.username}]
+                }
+            }     
+        )
+        .then(function(usuario) {
+            if (usuario == null) {
+                res.send("usuario incorrecto")
+            } else if (bcrypt.compareSync(req.body.password, usuario.constraseña) == false) {
+                res.send("contraseña incorrecta")
+            } else {
+                res.render("home")
+            }
+        })
+       
     }
 
     }
