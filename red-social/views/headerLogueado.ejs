@@ -10,18 +10,10 @@
                         <li><a href="/home">Home</a></li>
                         <li><a href="/post/agregar/">Postear</a></li>
                         <li><a href="/user/me">Perfil</a></li>
+                        <li><a href="/post/buscador">Buscador Post</a></li>
                     </ul>
                 </div>
-                <div class="uk-navbar-right">
-                    <ul class="uk-flex uk-flex-between uk-flex-middle">
-                        <li>
-                            <form action="/resultado/busqueda/hola" class="uk-search uk-search-default">
-                                <span uk-search-icon></span>
-                                <input type="search" class="uk-search-input" placeholder="Buscar 'Juan'...">
-                            </form>
-                        </li>
-                    </ul>
-                </div>
+                <%- include("buscador")%>
             </nav>
         </div>
     </section>

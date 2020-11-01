@@ -19,39 +19,25 @@
 <body>
     <%- include("headerLogueado")%>
     <main>
-        <div class="uk-section uk-section-small"> <a href="/detalleUsuario/1">
-            <h2>Estos son tus resultados para "Juan"</h2>
-            <div class="contenedor uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center">
-                <a href="/detalleUsuario/1">
-                <div class="perfil">
-                    <div class="imagen"> 
-                        <img src="/images/users/1.jpeg" alt="">
-                    </div>
-                    <div class="nombre-usuario">
-                        <p>Juanse</p>
-                    </div>
-                </div>
-                </a>
-                <a href="/detalleUsuario/1">
-                <div class="perfil">
-                    <div class="imagen"> 
-                        <img src="/images/users/5.jpeg" alt="">
-                    </div>
-                    <div class="nombre-usuario">
-                        <p>JuanoMolina</p>
-                    </div>
-                </div>
-                </a>
-                <a href="/detalleUsuario/1"><div class="perfil"> 
-                    <div class="imagen"> 
-                        <img src="/images/users/2.jpeg" alt="">
-                    </div>
-                    <div class="nombre-usuario">
-                        <p>JuanaPerez</p>
-                    </div>
-                </div>
-                </a>
-            </div>
+        <div class="uk-section uk-section-small">
+            <div class="contenedor uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center"></div>
+            <% if (usuario.length >= 1) { %>
+                <h2>Estos son tus resultados para <%- busqueda %></h2>
+                <% for( let i = 0; i < usuario.length; i++ ) { %>
+                    <a href="/user/detalle/<%=usuario[i].id%>" > 
+                        <div class="perfil">
+                            <div class="imagen"> 
+                                <img src="/images/users/1.jpeg" alt="">
+                            </div>
+                            <div class="nombre-usuario">
+                                <p>  <%= usuario[i].nombre%> </p>
+                            </div>
+                        </div>
+                    </a>
+                <% } %>   
+            <% } else {%>
+                <h2>No se encontraron resultados para <%- busqueda %>, intenta buscando otra cosa</h2>            
+            <% } %>  
         </div>
     </main>
     <%- include("footer")%>

@@ -1,9 +1,16 @@
+let db = require("../database/models/index")
+let op = db.Sequelize.Op;
+
 let user = {
 
     detalle: function(req, res){
-            var id = req.params.id
+            var id = req.params.id;
 
-            res.render("detalleUsuario")
+            db.Usuario.findByPk(id)
+            
+            .then(function(usuario){
+                res.render("detalleUsuario",  {usuario: usuario})
+            })
     },
 
     login: function(req, res){
