@@ -15,7 +15,11 @@ let user = {
     },
 
     login: function(req, res){
-        res.render("login")
+        if(req.session.usuariologueado =! undefined){
+            res.render("home")
+        } else {
+            res.render("login")
+        }
     },
 
     me: function(req, res){
@@ -41,6 +45,8 @@ let user = {
             } else if (bcrypt.compareSync(req.body.password, usuario.constraseña) == false) {
                 res.send("contraseña incorrecta")
             } else {
+                req.session.usuariologueado = usuario;
+
                 res.render("home")
             }
         })
