@@ -15,7 +15,7 @@ let user = {
     },
 
     login: function(req, res){
-        if(req.session.usuariologueado =! undefined){
+        if(req.session.usuariologueado != undefined){
             res.render("home")
         } else {
             res.render("login")
@@ -35,22 +35,36 @@ let user = {
         db.Usuario.findOne(
             {
                 where: {
-                    [op.or]:[{email:  req.body.username}, {nombre: req.body.username}]
+                    [op.or]:[{email: req.body.nnn1}, {nombre: req.body.nnn1}]
                 }
             }     
         )
         .then(function(usuario) {
             if (usuario == null) {
                 res.send("usuario incorrecto")
-            } else if (bcrypt.compareSync(req.body.password, usuario.constraseña) == false) {
+            } else if (
+                
+            //bcrypt.compareSync(req.body.password, usuario.constraseña) == false
+             req.body.password != usuario.contraseña) {
                 res.send("contraseña incorrecta")
             } else {
-                req.session.usuariologueado = usuario;
+                req.session.usuarioLog = usuario;
+
+                if (req.body.recordame != undefined) {
+                    //guardo cookie
+                    res.cookie("usuarioLog", usuario.id, {expire : new Date() + 1000 * 100});
+                }
 
                 res.render("home")
             }
         })
        
+    },
+
+    logout: function (req, res){
+        req.session.usuarioLog = undefined;
+
+        res.redirect("/home")
     }
 
     }

@@ -7,9 +7,32 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
-var session = require("express-session");
+var session = require('express-session');
 
+let db = require('./database/models/index')
 var app = express();
+app.use(session({ secret: "thenetworktextosecreto", resave: true, saveUninitialized: true }))
+
+
+app.use(function(req, res, next){
+  res.locals = { 
+    usuarioLog: req.session.usuarioLog
+  }
+  next()
+})
+
+app.use(function(req, res, next){
+  
+  if (res.cookies.usuarioLog != undefined && req.session.usuarioLog == null) {
+    db.Usuario.findByPk(usuarioLog)
+    .then (function(usuario){
+      res.session.usuarioLog = usuario
+    })
+  } else {
+    next()
+  }
+
+})
 
 let rutaPost = require("./routes/post");
 app.use("/post", rutaPost);
@@ -36,7 +59,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
-app.use(session({ secret: "thenetworktextosecreto" }))
+
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

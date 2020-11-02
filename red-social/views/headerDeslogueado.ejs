@@ -7,9 +7,16 @@
                 </div>
                 <div class="uk-navbar-center">
                     <ul class="uk-flex uk-flex-between uk-flex-middle">
+                    <%if (usuarioLog == undefined) { %>
                         <li><a href="/home">Home</a></li>
                         <li><a href="/user/registracion">Registración</a></li>
                         <li><a href="/user/login">Login</a></li>
+                     <% } else {%>
+                        <li>Hola <%= usuarioLog.nombre %></li>
+                        <li><a href="/post/agregar/">Postear</a></li>
+                        <li><a href="/user/me">Mi Perfil</a></li>
+                        <li><a href="/user/logout">Log out</a></li>
+                    <% } %>
                     </ul>
                 </div>
                 <%- include("buscador")%>
