@@ -28,7 +28,30 @@ let user = {
     
     regis: function (req, res) {
         res.render("registracion")
+       
     },
+
+    porcesoRegis: function (req,res)  {
+        
+            var userRegister = {
+                nombre: req.body.nombredeusuario,
+                email: req.body.email,
+                cantidadLengu: req.body.cantLenguajes,
+                fechaNacim: req.body.nac,
+                contraseña: bcrypt.hashSync(req.body.password, 10), //escriptar la contrasenia
+                pregunta: req.body.pregunta,
+                respuesta: req.body.respuesta, 
+            }
+        
+            db.usuario.create(userRegister)
+            .then(function() {
+                res.redirect("/home");
+            })    
+            
+             //   response.render('login', {title: 'login', error: '', success: "Usuario registrado correctamente!"});
+            };
+
+    
 
     procesoLogin: function (req, res){
 
