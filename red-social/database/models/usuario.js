@@ -25,8 +25,15 @@ module.exports = (sequelize, DataTypes) => {
 
         email:{
             type: DataTypes.STRING,
-        }
+        },
 
+        pregunta:{
+            type: DataTypes.STRING,
+        },
+        
+        respuesta:{
+            type: DataTypes.STRING,
+        }
     }
 
     let config = {
