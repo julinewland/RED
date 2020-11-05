@@ -13,18 +13,22 @@ var post = {
 
     nuevoPost: function (req, res) {
 
-        let nuevoPost = {
-            idUsuario: req.body,
-            urlImagen: req.body.urlImagen,
-            texto: req.body.texto,
-            fecha:req.body, 
-        };      
-
-        db.Post.create(nuevoPost)
-
-        .then(function(){
-            res.redirect("/home");
-        })
+        if (req.session.usuarioLog != undefined) {
+            let nuevoPost = {
+                idUsuario: req.body,
+                urlImagen: req.body.urlImagen,
+                texto: req.body.texto,
+                fecha:req.body, 
+            };      
+    
+            db.Post.create(nuevoPost)
+    
+            .then(function(){
+                res.redirect("/home");
+            })
+        } else {
+            res.render("registracion")
+        }        
     },
 
     buscador: function(req, res){

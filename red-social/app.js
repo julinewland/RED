@@ -11,8 +11,18 @@ var session = require('express-session');
 
 let db = require('./database/models/index')
 var app = express();
+
+app.use(cookieParser());
+
 app.use(session({ secret: "thenetworktextosecreto", resave: true, saveUninitialized: true }))
 
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(function(req, res, next){
   res.locals = { 
@@ -21,15 +31,18 @@ app.use(function(req, res, next){
   next()
 })
 
+
 app.use(function(req, res, next){
-  
-  if (res.cookies.usuarioLog != undefined && req.session.usuarioLog == null) {
-    db.Usuario.findByPk(usuarioLog)
+  console.log("-----");
+  console.log(req.cookies);
+  console.log("--11---");
+ if (req.cookies.idUsuario != undefined && req.session.usuarioLog == null) {
+    db.usuario.findByPk(req.cookies.idUsuario)
     .then (function(usuario){
-      res.session.usuarioLog = usuario
-    })
+     res.session.usuarioLog = usuario
+  })
   } else {
-    next()
+   next()
   }
 
 })
@@ -58,10 +71,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
-
-
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

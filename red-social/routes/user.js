@@ -8,7 +8,7 @@ router.post("/login", userController.procesoLogin)
 
 router.get("/registracion", userController.regis)
 
-router.post("/registracion", userController.procesoRegis)
+router.post("/registracion", userController.porcesoRegis)
 
 router.get("/detalle/:id", userController.detalle)
 

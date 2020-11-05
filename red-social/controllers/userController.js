@@ -15,7 +15,7 @@ let user = {
     },
 
     login: function(req, res){
-        if(req.session.usuariologueado != undefined){
+        if(req.session.usuarioLog != undefined){
             res.render("home")
         } else {
             res.render("login")
@@ -27,7 +27,12 @@ let user = {
     },
     
     regis: function (req, res) {
-        res.render("registracion")
+        if (req.session.usuarioLog != undefined) {
+            res.redirect("/home")
+        } else {
+            res.render("registracion")
+        }
+        
        
     },
 
@@ -44,14 +49,19 @@ let user = {
             }
         
             db.usuario.create(userRegister)
-            .then(function() {
+
+            .then(function(usuario) {
+
+                req.session.usuarioLog = usuario;
+
+                //Creo cookie automáticamente
+                res.cookie("idUsuario", usuario.id, {expire : new Date() + 1000 * 100});
+
                 res.redirect("/home");
             })    
             
              //   response.render('login', {title: 'login', error: '', success: "Usuario registrado correctamente!"});
-            };
-
-    
+            },
 
     procesoLogin: function (req, res){
 
@@ -65,17 +75,14 @@ let user = {
         .then(function(usuario) {
             if (usuario == null) {
                 res.send("usuario incorrecto")
-            } else if (
-                
-            //bcrypt.compareSync(req.body.password, usuario.constraseña) == false
-             req.body.password != usuario.contraseña) {
+            } else if (bcrypt.compareSync(req.body.password, usuario.constraseña) == false) {
                 res.send("contraseña incorrecta")
             } else {
                 req.session.usuarioLog = usuario;
 
                 if (req.body.recordame != undefined) {
                     //guardo cookie
-                    res.cookie("usuarioLog", usuario.id, {expire : new Date() + 1000 * 100});
+                    res.cookie("idUsuario", usuario.id, {expire : new Date() + 1000 * 100});
                 }
 
                 res.render("home")
