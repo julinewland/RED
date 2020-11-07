@@ -15,7 +15,7 @@ let user = {
     },
 
     login: function(req, res){
-        if(req.session.usuarioLog != undefined){
+        if(req.session.usuarioLogueado != undefined){
             res.render("home")
         } else {
             res.render("login")
@@ -36,32 +36,43 @@ let user = {
        
     },
 
-    porcesoRegis: function (req,res)  {
+    porcesoRegis: function(req,res){
+
         
-            var userRegister = {
-                nombre: req.body.nombredeusuario,
-                email: req.body.email,
-                cantidadLengu: req.body.cantLenguajes,
-                fechaNacim: req.body.nac,
-                contraseña: bcrypt.hashSync(req.body.password, 10), //escriptar la contrasenia
-                pregunta: req.body.pregunta,
-                respuesta: req.body.respuesta, 
+        db.Usuario.findAll(
+            {
+                where: {
+                    [op.or]: [{ email: { [op.like]: req.body.email}}]
+                }    
             }
-        
-            db.usuario.create(userRegister)
-
-            .then(function(usuario) {
-
-                req.session.usuarioLog = usuario;
-
-                //Creo cookie automáticamente
-                res.cookie("idUsuario", usuario.id, {expire : new Date() + 1000 * 100});
-
-                res.redirect("/home");
-            })    
+        )
+        .then(function(usuario){
+            if (usuario.lenght >= 1){
+                res.send("ya hay un usuario regustrado con tu email")
+            }else{
+                
+                let userRegister = {
+                    nombre: req.body.nombredeusuario,
+                    email: req.body.email,
+                    cantidadLengu: req.body.cantLenguajes,
+                    fechaNacim: req.body.nac,
+                    contraseña: bcrypt.hashSync(req.body.password, 10), //escriptar la contraseña
+                    pregunta: req.body.pregunta,
+                    respuesta: req.body.respuesta, 
+                };
             
-             //   response.render('login', {title: 'login', error: '', success: "Usuario registrado correctamente!"});
-            },
+                db.Usuario.create(userRegister)
+                
+                .then(function() {
+    
+                    res.redirect("/home");
+                })    
+                
+                 //   response.render('login', {title: 'login', error: '', success: "Usuario registrado correctamente!"});
+                }
+        })
+    },
+        
 
     procesoLogin: function (req, res){
 
@@ -75,7 +86,8 @@ let user = {
         .then(function(usuario) {
             if (usuario == null) {
                 res.send("usuario incorrecto")
-            } else if (bcrypt.compareSync(req.body.password, usuario.constraseña) == false) {
+            } else if (req.body.password != usuario.contraseña) {
+            //(bcrypt.compareSync(req.body.password, usuario.constraseña) == false) {
                 res.send("contraseña incorrecta")
             } else {
                 req.session.usuarioLog = usuario;
@@ -84,8 +96,7 @@ let user = {
                     //guardo cookie
                     res.cookie("idUsuario", usuario.id, {expire : new Date() + 1000 * 100});
                 }
-
-                res.render("home")
+                res.redirect("/home")
             }
         })
        

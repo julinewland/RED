@@ -23,13 +23,14 @@
         <h1>Publicar</h1>
   
         <!-- Form de Publicacion -->
-        <form action="/post/agregar" method="POST">
+        <form action="/post/actualizar" method="POST">
+            <input type="hidden" name="idPost" value=<%post.id%>>
         <div class="select">
           <div class="form-group">
-                  <label>Seleccionar imagen</label>
+                  <label>Imagen</label>
           </div>
           <div class="form-group">
-                  <input type="text" class="form-control" name="urlImagen" placeholder="">
+                  <input type="text" class="form-control" name="urlImagen" value="<%post.urlImagen%>">
         </div>
         </div>
         <div class="select">
@@ -37,11 +38,11 @@
                   <label>Pie de foto:</label>
           </div>
           <div class="form-group">
-                  <input type="text" class="form-control" name="texto" placeholder="...">
+                  <input type="text" class="form-control" name="texto" value="<%post.texto%>">
               </div>
         </div>
         <div class="select button">
-          <button type="submit" class="btn btn-warning btn-lg">Publicar</button>
+          <button type="submit" class="btn btn-warning btn-lg">Actualizar post</button>
         </div>
   
      </form>

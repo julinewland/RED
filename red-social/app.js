@@ -20,6 +20,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(express.json());
+
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
@@ -37,9 +38,9 @@ app.use(function(req, res, next){
   console.log(req.cookies);
   console.log("--11---");
  if (req.cookies.idUsuario != undefined && req.session.usuarioLog == null) {
-    db.usuario.findByPk(req.cookies.idUsuario)
+    db.Usuario.findByPk(req.cookies.idUsuario)
     .then (function(usuario){
-     res.session.usuarioLog = usuario
+     session.usuarioLog = usuario
   })
   } else {
    next()

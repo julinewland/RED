@@ -7,10 +7,16 @@ router.get("/detalle/:id", postController.detalle);
 
 router.get("/agregar", postController.agregar);
 
-router.post("/nuevo", postController.nuevoPost);
+router.post("/agregar", postController.nuevoPost);
 
 router.get("/buscador", postController.buscador);
 
 router.get("/resultado", postController.resultado);
+
+router.post("/borrar", postController.borrar)
+
+router.get("/editar/:id", postController.editar)
+
+router.post("/actualizar", postController.actualizar)
 
 module.exports = router;

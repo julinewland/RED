@@ -7,9 +7,7 @@ let homeController = {
         
         db.Post.findAll({
             order: [["fecha", "DESC"]],
-        }
-        )
-        
+        })
         .then(function(posts){
             res.render("home", {posts: posts})
         })

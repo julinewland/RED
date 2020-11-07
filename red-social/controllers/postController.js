@@ -1,24 +1,58 @@
-let db = require("../database/models/index")
+let db = require("../database/models/index");
+const session = require("express-session");
 let op = db.Sequelize.Op;
 
 var post = {
     agregar: function (req, res) {
         res.render("agregarPost")
     },
+
+    borrar: function(req, res){
+
+        if (req.session.usuarioLog == req.body.idUsuario) {
+            var idPostBorrar = req.body.idPost;
+
+        db.Post.destroy({
+            where: {
+                id: idPostBorrar
+            }
+        })
+
+        res.redirect("/home")
+        } else {
+            res.redirect("/post/detalle/" + req.body.idPost)
+        }        
+    },
+
     detalle: function (req, res) {
-        var id = req.params.id
+        var id = req.params.id;
         
-        res.render("detallePost")
+        db.Post.findByPk(id)
+        .then(function(post){
+            res.render("detallePost", {post: post})
+        })
+        
+    },
+
+    editar: function(req, res){
+
+        let idPostEditar = req.params.id;
+
+        db.Post.findByPk(idPostEditar)
+
+        .then(function(post){
+            res.render("editarPost", {post: post})
+        })
     },
 
     nuevoPost: function (req, res) {
 
         if (req.session.usuarioLog != undefined) {
             let nuevoPost = {
-                idUsuario: req.body,
+                idUsuario: req.session.usuarioLog,
                 urlImagen: req.body.urlImagen,
                 texto: req.body.texto,
-                fecha:req.body, 
+                fecha: [], 
             };      
     
             db.Post.create(nuevoPost)
@@ -27,7 +61,30 @@ var post = {
                 res.redirect("/home");
             })
         } else {
-            res.render("registracion")
+            res.render("/user/registracion")
+        }        
+    },
+
+    actualizar: function (req, res) {
+
+        if (req.session.usuarioLog != undefined) {
+            let postActualizado = {
+                idUsuario: req.session.usuarioLog,
+                urlImagen: req.body.urlImagen,
+                texto: req.body.texto, 
+            };      
+    
+            db.Post.update(postActualizado, {
+                where: {
+                    id: req.body.idpost
+                }
+            })
+    
+            .then(function(){
+                res.redirect("/home");
+            })
+        } else {
+            res.render("/user/registracion")
         }        
     },
 
