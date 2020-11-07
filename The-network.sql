@@ -90,6 +90,8 @@ CREATE TABLE `usuarios` (
   `cantidadLengu` int(11) NOT NULL DEFAULT '0',
   `contraseña` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
+  `pregunta` varchar(120) NOT NULL,
+  `respuesta` varchar(120) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `nombre_UNIQUE` (`nombre`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
@@ -101,7 +103,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'camille','1999-07-20',2,'Rzainfs3','camille1123@gmail.com'),(2,'jules','1999-09-03',3,'Pepito123','jules12232@gmail.com'),(3,'juan','1998-06-04',1,'hola22331','juan123@gmail.com'),(4,'martina','2000-05-02',3,'19284034','martina333@gmail.com'),(5,'pedro','1997-07-08',2,'1jdien2','pedro222@gmail.com');
+INSERT INTO `usuarios` VALUES (1,'camille','1999-07-20',2,'Rzainfs3','camille1123@gmail.com','',''),(2,'jules','1999-09-03',3,'Pepito123','jules12232@gmail.com','',''),(3,'juan','1998-06-04',1,'hola22331','juan123@gmail.com','',''),(4,'martina','2000-05-02',3,'19284034','martina333@gmail.com','',''),(5,'pedro','1997-07-08',2,'1jdien2','pedro222@gmail.com','','');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -114,4 +116,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-10-26 10:58:18
+-- Dump completed on 2020-11-07  9:53:01
