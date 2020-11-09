@@ -30,8 +30,11 @@ var post = {
         db.Post.findByPk(id,
             {include:[
                 {association: "usuarioPost"},
-                {association: "coment"}
+                {association: "coment",
+                    include: {association: "usuarioCom"}
+                }
             ]},)
+    
         .then(function(post){
             res.render("detallePost", {post: post})
         })

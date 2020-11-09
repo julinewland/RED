@@ -9,9 +9,9 @@ let homeController = {
             {include:[
                 {association: "usuarioPost"},
                 {association: "coment"}
-            ]},  
-            
-            {order: [["createdAt", "DESC"]]},  
+            ],
+            order: [["createdAt", "DESC"]],  
+            },  
         )
 
         .then(function(posts){
