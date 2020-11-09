@@ -40,5 +40,17 @@ module.exports = (sequelize, DataTypes) => {
 
     let Post = sequelize.define("Post", cols, config);
 
+    Post.associate = function (models){
+        Post.belongsTo(models.Usuario, {
+            as: "usuarioPost",
+            foreignKey: "idusuario"
+        })
+
+        Post.hasMany(models.Comentario, {
+            as: "coment",
+            foreignKey: "idpost"
+        })
+    }
+
     return Post;
 }

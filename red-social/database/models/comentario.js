@@ -19,17 +19,33 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
         },
 
-        fechaCreacion:{
+        createdAt:{
+            type: DataTypes.DATE,
+        },
+
+        updatedAt:{
             type: DataTypes.DATE,
         },
     }
 
     let config = {
         tableName: "comentarios",
-        timestamps: false,
+        timestamps: true,
     }
 
     let Comentario = sequelize.define("Comentario", cols, config);
+
+    Comentario.associate = function (models){
+        Comentario.belongsTo(models.Post, {
+            as: "coment",
+            foreignKey: "idpost"
+        })
+
+        Comentario.belongsTo(models.Usuario, {
+            as: "usuarioCom",
+            foreignKey: "idusuario"
+        })
+    }
 
     return Comentario;
 }

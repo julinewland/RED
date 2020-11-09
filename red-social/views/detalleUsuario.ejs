@@ -41,47 +41,16 @@
                </section>
 
                <section class="muro uk-flex uk-flex-middle uk-flex-center">
-                    <div class="uk-grid uk-child-width-1-3 uk-width-1-1 uk-margin-remove" uk-grid>
-                        <div class="posteo uk-card uk-card-hover uk-card-body uk-flex uk-flex-column uk-flex-middle uk-flex-center ">
-                            <a href="/post/detalle/1" class="link-detalle">
-                                <img src="/images/gamer-1.jpeg" alt="foto de perfil" class="publicaciones">
-                                <p class="uk-text-center">Nuevo Monitor!</p>
-                            </a>
-                        </div>
-                        <div class="posteo uk-card uk-card-hover uk-card-body uk-flex uk-flex-column uk-flex-middle uk-flex-center ">
-                            <a href="/post/detalle/1" class="link-detalle">
-                                <img src="/images/detalle.jpeg" alt="foto de perfil" class="publicaciones">
-                                <p class="uk-text-center">...</p>
-                            </a>
-                        </div>
-                        <div class="posteo uk-card uk-card-hover uk-card-body uk-flex uk-flex-column uk-flex-middle uk-flex-center ">
-                            <a href="/post/detalle/1" class="link-detalle">
-                                <img src="/images/detalle2.jpeg" alt="foto de perfil" class="publicaciones">
-                                <p class="uk-text-center">Fiel Compañero</p>
-                            </a>
-                        </div>
-                        <div class="posteo uk-card uk-card-hover uk-card-body uk-flex uk-flex-column uk-flex-middle uk-flex-center ">
-                            <a href="/post/detalle/1" class="link-detalle">
-                                <img src="/images/detalle3.jpeg" alt="foto de perfil" class="publicaciones">
-                                <p class="uk-text-center">inspiracion</p>
-                            </a>
-                        </div>
-                        <div class="posteo uk-card uk-card-hover uk-card-body uk-flex uk-flex-column uk-flex-middle uk-flex-center ">
-                            <a href="/post/detalle/1" class="link-detalle">
-                                <img src="/images/detalle4.jpeg" alt="foto de perfil" class="publicaciones">
-                                <p class="uk-text-center">;)</p>
-                            </a>
-                        </div>
-                        <div class="posteo uk-card uk-card-hover uk-card-body uk-flex uk-flex-column uk-flex-middle uk-flex-center ">
-                            <a href="/post/detalle/1" class="link-detalle">
-                                <img src="/images/detalle5.jpeg" alt="foto de perfil" class="publicaciones">
-                                <p class="uk-text-center">En barilocheee</p>
-                            </a>
-                        </div>
-                    
-                      
-                        
-                    </div>
+                <div class="uk-grid uk-child-width-1-3 uk-width-1-1 uk-margin-remove" uk-grid>
+                   <% for (let i = 0; i < usuario.usuarioPost.length; i++) {%>
+                    <div class="posteo uk-card uk-card-hover uk-card-body uk-flex uk-flex-column uk-flex-middle uk-flex-center ">
+                        <a href="/post/detalle/<%=usuario.usuarioPost[i].id%>" class="link-detalle">
+                            <img src="<%=usuario.usuarioPost[i].urlImagen%>" alt="foto de perfil" class="publicaciones">
+                            <p class="uk-text-center"><%=usuario.usuarioPost[i].texto%></p>
+                        </a>
+                    </div> 
+                   <%}%>
+                </div>
                </section>
             </div>
         </div>

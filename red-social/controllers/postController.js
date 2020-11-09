@@ -27,7 +27,11 @@ var post = {
     detalle: function (req, res) {
         var id = req.params.id;
         
-        db.Post.findByPk(id)
+        db.Post.findByPk(id,
+            {include:[
+                {association: "usuarioPost"},
+                {association: "coment"}
+            ]},)
         .then(function(post){
             res.render("detallePost", {post: post})
         })
@@ -95,16 +99,17 @@ var post = {
         var busqueda = req.query.busqueda;
 
             db.Post.findAll(
-                
+                {include:[
+                    {association: "usuarioPost"}
+                ]},
+
                 {
                     where: {
                         texto: { [op.like]: "%" + busqueda + "%"} },
                 
                     order: ["createdAt"],
                     limit: 20,
-                },
-                
-                
+                },                
             )
             
             .then(function(posts){

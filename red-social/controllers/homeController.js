@@ -5,9 +5,14 @@ let homeController = {
     
     vista: function(req, res){
         
-        db.Post.findAll({
-            order: [["createdAt", "DESC"]],
-        })
+        db.Post.findAll(
+            {include:[
+                {association: "usuarioPost"},
+                {association: "coment"}
+            ]},  
+            
+            {order: [["createdAt", "DESC"]]},  
+        )
 
         .then(function(posts){
             res.render("home", {posts: posts})

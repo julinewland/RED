@@ -7,7 +7,10 @@ let user = {
     detalle: function(req, res){
             var id = req.params.id;
 
-            db.Usuario.findByPk(id)
+            db.Usuario.findByPk(id,
+                {include:[
+                    {association: "usuarioPost"},
+                ]})
             
             .then(function(usuario){
                 res.render("detalleUsuario",  {usuario: usuario})
