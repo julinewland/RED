@@ -49,10 +49,9 @@ var post = {
 
         if (req.session.usuarioLog != undefined) {
             let nuevoPost = {
-                idUsuario: req.session.usuarioLog,
+                idusuario: req.session.usuarioLog.id,
                 urlImagen: req.body.urlImagen,
                 texto: req.body.texto,
-                fecha: [], 
             };      
     
             db.Post.create(nuevoPost)
@@ -61,7 +60,7 @@ var post = {
                 res.redirect("/home");
             })
         } else {
-            res.render("/user/registracion")
+            res.redirect("/user/registracion")
         }        
     },
 
@@ -101,7 +100,7 @@ var post = {
                     where: {
                         texto: { [op.like]: "%" + busqueda + "%"} },
                 
-                    order: ["fecha"],
+                    order: ["createdAt"],
                     limit: 20,
                 },
                 

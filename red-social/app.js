@@ -32,21 +32,30 @@ app.use(function(req, res, next){
   next()
 })
 
-
 app.use(function(req, res, next){
-  console.log("-----");
-  console.log(req.cookies);
-  console.log("--11---");
- if (req.cookies.idUsuario != undefined && req.session.usuarioLog == null) {
+  
+  if (req.cookies.idUsuario != undefined && req.session.usuarioLog == null) {
     db.Usuario.findByPk(req.cookies.idUsuario)
     .then (function(usuario){
-     session.usuarioLog = usuario
+    session.usuarioLog = usuario
+    return next()
   })
+  
   } else {
    next()
   }
 
 })
+
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
 
 let rutaPost = require("./routes/post");
 app.use("/post", rutaPost);
@@ -59,16 +68,6 @@ app.use("/Resultado", rutaResultado);
 
 let rutaHome = require("./routes/home");
 app.use("/home", rutaHome)
-
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
-
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

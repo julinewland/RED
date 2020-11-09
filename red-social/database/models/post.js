@@ -19,15 +19,23 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
         },
 
-        fecha:{
+        createdAt:{
             type: DataTypes.DATE,
-        }
+        },
+
+        updatedAt:{
+            type: DataTypes.DATE,
+        },
+
+        deletedAt:{
+            type: DataTypes.DATE,
+        },
 
     }
 
     let config = {
         tableName: "posts",
-        timestamps: false,
+        timestamps: true,
     }
 
     let Post = sequelize.define("Post", cols, config);

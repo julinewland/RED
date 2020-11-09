@@ -6,8 +6,9 @@ let homeController = {
     vista: function(req, res){
         
         db.Post.findAll({
-            order: [["fecha", "DESC"]],
+            order: [["createdAt", "DESC"]],
         })
+
         .then(function(posts){
             res.render("home", {posts: posts})
         })
