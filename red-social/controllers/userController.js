@@ -111,6 +111,42 @@ let user = {
         res.redirect("/home")
     }
 
+    },
+
+
+    editarPerfil: function (req, res)
+     {
+        db.user.findByPk (req,params.id)
+        .then (function (editarPerfil) {
+
+            res.redner ("editarPerfil", {estiarPerfil:editarPerfil})
+        })
+    },
+
+perfilActualizado: function (req, res) {
+
+    let nuevosDatos = {
+        nombre: req.body.nombredeusuario,
+        email: req.body.email,
+        cantidadLengu: req.body.cantLenguajes,
+        fechaNacim: req.body.nac,
+        contraseña: bcrypt.hashSync(req.body.password, 10), 
+        pregunta: req.body.pregunta,
+        respuesta: req.body.respuesta, 
+
     }
+    
+    db.usuario.update (nuevosDatos, {
+        where: {
+            id: req.sessio.usuarioLog.id
+        }
+    })
+}
+
+.then(function () {
+
+    res.redirect ("/home")
+})
+
 
 module.exports = user

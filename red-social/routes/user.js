@@ -16,4 +16,8 @@ router.get("/me", userController.me)
 
 router.get("/logout", userController.logout)
 
+router.get ("/login", userControler.editarPerfil)
+
+router.post ("/me", userController.perfilActualizado)
+
 module.exports = router
