@@ -17,7 +17,7 @@ let resultado = {
             )
             
             .then(function(usuario){
-                res.render("resultadoBusqueda", {usuario: usuario, busqueda:busqueda})
+                res.render("resultadoBusqueda", {usuario: usuario, busqueda: busqueda})
             })
 
             

@@ -8,12 +8,12 @@ let homeController = {
         db.Post.findAll(
             {include:[
                 {association: "usuarioPost"},
-                {association: "coment"}
+                {association: "coment", include: {association: "usuarioCom"}}
             ],
             order: [["createdAt", "DESC"]],  
             },  
         )
-
+        
         .then(function(posts){
             res.render("home", {posts: posts})
         })

@@ -24,13 +24,13 @@
   
         <!-- Form de Publicacion -->
         <form action="/post/actualizar" method="POST">
-            <input type="hidden" name="idPost" value=<%post.id%>>
+            <input type="hidden" name="idPost" value="<%=post.id%>"">
         <div class="select">
           <div class="form-group">
                   <label>Imagen</label>
           </div>
           <div class="form-group">
-                  <input type="text" class="form-control" name="urlImagen" value="<%post.urlImagen%>">
+                  <input type="text" class="form-control" name="urlImagen" value="<%=post.urlImagen%>">
         </div>
         </div>
         <div class="select">
@@ -38,7 +38,7 @@
                   <label>Pie de foto:</label>
           </div>
           <div class="form-group">
-                  <input type="text" class="form-control" name="texto" value="<%post.texto%>">
+                  <input type="text" class="form-control" name="texto" value="<%=post.texto%>">
               </div>
         </div>
         <div class="select button">

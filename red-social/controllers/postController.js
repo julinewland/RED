@@ -17,8 +17,11 @@ var post = {
                 id: idPostBorrar
             }
         })
-
-        res.redirect("/home")
+        
+        .then(function(){
+            res.redirect("/home")
+        })
+        
         } else {
             res.redirect("/post/detalle/" + req.body.idPost)
         }        
@@ -75,19 +78,18 @@ var post = {
 
         if (req.session.usuarioLog != undefined) {
             let postActualizado = {
-                idUsuario: req.session.usuarioLog,
                 urlImagen: req.body.urlImagen,
                 texto: req.body.texto, 
             };      
     
             db.Post.update(postActualizado, {
                 where: {
-                    id: req.body.idpost
+                    id: req.body.idPost
                 }
             })
     
             .then(function(){
-                res.redirect("/home");
+                res.redirect("/post/detalle/" + req.body.idPost);
             })
         } else {
             res.render("/user/registracion")
@@ -100,20 +102,15 @@ var post = {
 
     resultado: function(req, res){
         var busqueda = req.query.busqueda;
-
             db.Post.findAll(
                 {include:[
-                    {association: "usuarioPost"}
-                ]},
-
-                {
-                    where: {
-                        texto: { [op.like]: "%" + busqueda + "%"} },
-                
-                    order: ["createdAt"],
-                    limit: 20,
-                },                
-            )
+                    {association: "usuarioPost"},
+                    {association: "coment",
+                        include: {association: "usuarioCom"}}],
+                where: { texto: { [op.like]: "%" + busqueda + "%"} },
+                order: ["createdAt"],
+                limit: 20,
+                })
             
             .then(function(posts){
                 res.render("resultadoPost", {posts: posts})

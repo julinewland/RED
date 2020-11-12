@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <title>The Network</title>
+    <link rel="icon"  href="/images/favicon.ico" type="image/icon type">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/registracion.css">
+    <link rel="stylesheet" href="/stylesheets/header.css">
+    <link rel="stylesheet" href="/stylesheets/footer.css">
+    <link rel="stylesheet" href="/stylesheets/general.css">
+
+    <%- include("links")%>
+    
+</head>
+
+<body>
+    <%- include("header")%>
+    <main>
+        <div class="contenedor">
+            <h1>Actualizar Perfil</h1>
+            <!-- REGISTRACION FORM -->
+            <form action="/user/editarPerfil" method="POST">
+            <div class="select">
+              <div class="form-group">
+                      <label>Nombre de Usuario</label>
+              </div>
+              <div class="form-group">
+                      <input type="text" class="form-control" name="nombredeusuario" value="<%=usuario.nombre%>">
+            </div>
+            </div>
+            <div class="select">
+                <input type="hidden" name="idUsuario" id="" value="<%=usuario.id%>">
+                <div class="form-group">
+                        <label>Email</label>
+                </div>
+                <div class="form-group">
+                        <input type="email" class="form-control" name="email" placeholder="Email.."  value="<%=usuario.email%>">
+                </div>
+                </div>
+              <div class="select">
+                <div class="form-group">
+                        <label>Fecha de nacimiento</label>
+                </div>
+                <div class="form-group">
+                        <input type="date" class="form-control" name="nac" placeholder="fecha de nacimiento"  value="<%=usuario.fechaNacim%>"> 
+                </div>
+              </div>
+              <div class="select">
+                <div class="form-group">
+                        <label>Cantidad de Lenguajes</label>
+                </div>
+                <div class="form-group">
+                        <input type="number" class="form-control" name="cantLenguajes" placeholder="Cantidad de Lenguajes" value="<%=usuario.cantidadLengu%>"> 
+                </div>
+              </div>
+            <div class="select">
+            <div class="select">
+            <div class="select button">
+              <button type="submit" class="btn btn-warning btn-lg">Actualizar Perfil</button>
+            </div>
+      
+            </form>
+      </div>
+    </main>
+    <%- include("footer")%>
+</body>
+
+</html>
+

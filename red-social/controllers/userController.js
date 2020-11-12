@@ -18,15 +18,29 @@ let user = {
     },
 
     login: function(req, res){
-        if(req.session.usuarioLogueado != undefined){
-            res.render("home")
+        if(req.session.usuarioLog != undefined){
+            res.redirect("/home")
         } else {
             res.render("login")
         }
     },
 
     me: function(req, res){
-        res.render("miPerfil")
+    
+        if (req.session.usuarioLog != undefined) {
+
+        db.Usuario.findByPk(req.session.usuarioLog.id,
+            {include:[
+                {association: "usuarioPost"}
+            ]},
+            )
+
+        .then(function(usuario){
+            res.render("miPerfil", {usuario: usuario})
+        })
+        } else {
+            res.redirect("/home")
+        }  
     },
     
     regis: function (req, res) {
@@ -57,17 +71,17 @@ let user = {
                 let userRegister = {
                     nombre: req.body.nombredeusuario,
                     email: req.body.email,
-                    cantidadLengu: req.body.cantLenguajes,
                     fechaNacim: req.body.nac,
                     contraseña: bcrypt.hashSync(req.body.password, 10), //escriptar la contraseña
                     pregunta: req.body.pregunta,
                     respuesta: req.body.respuesta, 
+                    cantidadLengu: req.body.cantLenguajes,
                 };
             
                 db.Usuario.create(userRegister)
                 
-                .then(function() {
-    
+                .then(function(usuario) {
+                    req.session.usuarioLog = usuario
                     res.redirect("/home");
                 })    
                 
@@ -97,7 +111,7 @@ let user = {
 
                 if (req.body.recordame != undefined) {
                     //guardo cookie
-                    res.cookie("idUsuario", usuario.id, {expire : new Date() + 1000 * 100});
+                    res.cookie("idUsuario", usuario.id, {expire : new Date() + 10000 * 100});
                 }
                 res.redirect("/home")
             }
@@ -109,18 +123,18 @@ let user = {
         req.session.usuarioLog = undefined;
 
         res.redirect("/home")
-    }
-
     },
 
+    editarPerfil: function (req, res){
 
-    editarPerfil: function (req, res)
-     {
-        db.user.findByPk (req,params.id)
-        .then (function (editarPerfil) {
-
-            res.redner ("editarPerfil", {estiarPerfil:editarPerfil})
-        })
+        if (req.session.usuarioLog != undefined) {
+            db.Usuario.findByPk(req.session.usuarioLog.id)
+            .then (function (usuario) {
+                res.render ("editarPerfil", {usuario: usuario})
+            })
+        } else {
+            res.redirect("/home")
+        }
     },
 
 perfilActualizado: function (req, res) {
@@ -130,23 +144,18 @@ perfilActualizado: function (req, res) {
         email: req.body.email,
         cantidadLengu: req.body.cantLenguajes,
         fechaNacim: req.body.nac,
-        contraseña: bcrypt.hashSync(req.body.password, 10), 
-        pregunta: req.body.pregunta,
-        respuesta: req.body.respuesta, 
-
     }
     
-    db.usuario.update (nuevosDatos, {
+    db.Usuario.update(nuevosDatos, {
         where: {
-            id: req.sessio.usuarioLog.id
+            id: req.session.usuarioLog.id
         }
     })
+
+    .then(function(){
+        res.redirect("/user/me");
+    })
 }
-
-.then(function () {
-
-    res.redirect ("/home")
-})
-
+}
 
 module.exports = user

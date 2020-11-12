@@ -95,9 +95,11 @@ CREATE TABLE `usuarios` (
   `email` varchar(45) NOT NULL,
   `pregunta` varchar(120) NOT NULL,
   `respuesta` varchar(120) NOT NULL,
+  `createdAt` datetime DEFAULT NULL,
+  `updatedAt` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `nombre_UNIQUE` (`nombre`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -106,7 +108,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'camille','1999-07-20',2,'Rzainfs3','camille1123@gmail.com','Color preferido?','Verde'),(2,'jules','1999-09-03',3,'Pepito123','jules12232@gmail.com','¿Como se llamaba tu perro?','Heidi'),(3,'juan','1998-06-04',1,'hola22331','juan123@gmail.com','Cuantos hermanos tenes?','3'),(4,'martina','2000-05-02',3,'19284034','martina333@gmail.com','Cual es tu color preferido?','Amarillo'),(5,'pedro','1997-07-08',2,'1jdien2','pedro222@gmail.com','¿Cual es el nombre de tu perro?','roberto');
+INSERT INTO `usuarios` VALUES (1,'camille','1999-07-20',2,'Rzainfs3','camille1123@gmail.com','Color preferido?','Verde',NULL,NULL),(2,'jules','2000-04-12',8,'Pepito123','julinewland1@gmail.com','¿Como se llamaba tu perro?','Heidi',NULL,NULL),(3,'juan','1998-06-04',1,'hola22331','juan123@gmail.com','Cuantos hermanos tenes?','3',NULL,NULL),(4,'martina','2000-05-02',3,'19284034','martina333@gmail.com','Cual es tu color preferido?','Amarillo',NULL,NULL),(5,'pedro','1997-07-08',2,'1jdien2','pedro222@gmail.com','¿Cual es el nombre de tu perro?','roberto',NULL,NULL),(6,'pepito','2000-12-12',0,'$2a$10$/X0sFCromelyb9Zh9xXtMul5VqCCj60R0ckt7LmjMVC/AXFChXDyK','pepito@algo.com','¿Como se llama tu perro?','Roco',NULL,NULL),(7,'carlos','2000-12-12',0,'$2a$10$v2IvzbRYIkrBS2w/my8NA.7TpcYaBOtkP4Esj.0r/CckM76UxdbgC','carlos@gmail.com','¿Como se llama tu perro?','Carlos',NULL,NULL);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -119,4 +121,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-09 10:40:12
+-- Dump completed on 2020-11-11 23:12:47
