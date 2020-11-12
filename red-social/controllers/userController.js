@@ -142,6 +142,7 @@ perfilActualizado: function (req, res) {
     let nuevosDatos = {
         nombre: req.body.nombredeusuario,
         email: req.body.email,
+        contraseña: bcrypt.hashSync(req.body.contra, 10),
         cantidadLengu: req.body.cantLenguajes,
         fechaNacim: req.body.nac,
     }
@@ -163,25 +164,32 @@ olvideContra: function (req, res) {
 },
 
 recuperarContra: function (req,res) {
-let usuario = req.query.nnn1;
-db.Usuario.findByPk(usuario)
+    let usuario = req.query.usuario;
+    db.Usuario.findOne(
+        {
+            where: {
+                [op.or]:[{email: usuario}, {nombre: usuario}]
+            }
+        })
 
-.then (function(usuario) {
-res.render  ("recuperarcontra", {usuario: usuario}
-
-)
+    .then (function(usuario) {
+    res.render  ("recuperarContra", {usuario: usuario})
 })},
 
 recuperarContraProceso: function (req,res) {
+
     var respuesta= req.body.respuesta
 
     db.Usuario.findByPk (req.body.id)
 
     .then (function(usuario){
-        if (usuario.respuesta== respuesta)   
-           {res.render ("/cambiarcontrasena",{usuario:usuario})} 
-           else {}
-           res.send ("respuesta incorrecta")
+        if (usuario.respuesta == respuesta){
+            req.session.usuarioLog = usuario;
+            res.redirect ("/user/editarPerfil")
+        } else {
+            res.send ("respuesta incorrecta")
+        }
+           
     })
    
 }
