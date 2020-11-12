@@ -153,9 +153,46 @@ perfilActualizado: function (req, res) {
     })
 
     .then(function(){
-        res.redirect("/user/me");
+        res.redirect("/user/me"); // res.redirect es para que te dirija a la ruta sin que pase todas las variables
     })
+},
+
+olvideContra: function (req, res) {
+
+    res.render ("olvideContra")
+},
+
+recuperarContra: function (req,res) {
+let usuario = req.query.nnn1;
+db.Usuario.findByPk(usuario)
+
+.then (function(usuario) {
+res.render  ("recuperarcontra", {usuario: usuario}
+
+)
+})},
+
+recuperarContraProceso: function (req,res) {
+    var respuesta= req.body.respuesta
+
+    db.Usuario.findByPk (req.body.id)
+
+    .then (function(usuario){
+        if (usuario.respuesta== respuesta)   
+           {res.render ("/cambiarcontrasena",{usuario:usuario})} 
+           else {}
+           res.send ("respuesta incorrecta")
+    })
+   
 }
+
+
+
+
 }
+
+
+
+
 
 module.exports = user

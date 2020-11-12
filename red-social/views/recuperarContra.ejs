@@ -20,36 +20,22 @@
     <%- include("header")%>
     <main>
         <div class="contenedor">
-            <h1>Ingresá</h1>
+            <h1>Pregunta y respuesta de seguridad</h1>
       
             <!-- LOGIN FORM -->
-            <form action="/user/login" method="POST">
+            <form action="/user/recuperarcontra" method="POST">
+<input type="hidden" value= "<%= usuario.id%>" name="id" >
+
             <div class="select">
               <div class="form-group">
-                      <label>Nombre de usuario o email:</label>
+                      <label> <%= usuario.pregunta %> </label>
               </div>
               <div class="form-group">
-                      <input type="text" class="form-control" name="nnn1" placeholder="Usuario">
+                      <input type="text" class="form-control" name="respuesta" placeholder="Usuario">
                   </div>
-            </div>
-            <div class="select">
-              <div class="form-group">
-                      <label>Contraseña:</label>
-              </div>
-              <div class="form-group">
-                      <input type="password" class="form-control" name="password" placeholder="Contraseña..">
-                  </div>
-            </div>
-            <div class="select-button">
-                <div class="form-group">
-                        <label>Recordame:</label>
-                        <input type="checkbox" name="recordame" id="">
-                </div>
-              </div>
-            <div class="select button">
-              <button type="submit" class="btn btn-warning btn-lg">Ingresar</button>
-              <a href="/user/registracion">¿No tenes cuenta? Registrate acá.</a>
-              <a href="/user/olvidecontra">¿Olvidaste tu Contraseña?</a>
+            </div> 
+           <div class="select button">
+              <button type="submit" class="btn btn-warning btn-lg">Siguiente</button>
             </div>
       
             </form>

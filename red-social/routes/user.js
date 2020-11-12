@@ -20,4 +20,10 @@ router.get ("/editarPerfil", userController.editarPerfil)
 
 router.post ("/editarPerfil", userController.perfilActualizado)
 
+router.get ("/olvidecontra", userController.olvideContra)
+
+router.get ("/recuperarcontra", userController.recuperarContra)
+
+router.post ("/recuperarcontra", userController.recuperarContraProceso)
+
 module.exports = router
