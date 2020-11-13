@@ -41,13 +41,13 @@
                                     <a href="" uk-icon="icon:heart; ratio: 0.8" class="uk-width-1-4 uk-text-right icono-meGusta"></a>
                                 </div>
                         <%}%>
-                        <% if (usuarioLog == post.idusuario) { %>
+                        <% if (usuarioLog.id == post.idusuario) { %>
                             <form action="/post/borrar" method="POST">
                                 <input type="hidden" name="idPost" value="<%post.id%>">
                                 <input type="hidden" name="idUsuario" value="<%post.idusuario%>">
                                 <button type="submit"> Borrar Post</button>
                             </form>
-                            <a href="/post/editar/<%post.id%>">Editar Post</a>
+                            <a href="/post/editar/<%=post.id%>">Editar Post</a>
                         <% } %>
                      </div>
                     </article>

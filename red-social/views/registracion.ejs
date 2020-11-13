@@ -20,6 +20,9 @@
 <body>
     <%- include("header")%>
     <main>
+        <%if (error != undefined){%>
+                <h2><%=error%></h2>
+        <%} else { }%>
         <div class="contenedor">
             <h1>Registrate</h1>
             <!-- REGISTRACION FORM -->
