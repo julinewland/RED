@@ -20,9 +20,9 @@
 <body>
     <%- include("header")%>
     <main>
-        <%if (error != undefined){%>
-                <h2><%=error%></h2>
-        <%} else { }%>
+        <%if (error =! undefined){%>
+                <h2 class="error">Error: <%=error%></h2>
+        <%}%>
         <div class="contenedor">
             <h1>Registrate</h1>
             <!-- REGISTRACION FORM -->
@@ -85,8 +85,15 @@
                 </div>
                 <div class="form-group">
                         <input type="text" class="form-control" name="cantLenguajes" placeholder="Cantidad de lenguajes...">
-                    </div>
-
+                </div>
+            </div>
+            <div class="select">
+                <div class="form-group">
+                        <label>Foto de Perfil</label>
+                </div>
+                <div class="form-group">
+                        <input type="text" class="form-control" name="fotoDePerfil" placeholder="Ingresa tu foto..">
+                </div>
             </div>
             <div class="select button">
               <button type="submit" class="btn btn-warning btn-lg">Registrarme</button>

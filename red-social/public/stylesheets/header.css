@@ -54,8 +54,12 @@ header nav form input, header nav form ::placeholder, header nav form span{
     font-weight: 500;
 }
 
-form.uk-search.uk-search-default{
-    
+form input.buscador{
+    height: 40px;
+    background-color: #cfff04;
+    border: black 3px solid;
+    padding-left: 10px;
+
 }
 
 input.uk-search-input{

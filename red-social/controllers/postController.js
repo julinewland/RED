@@ -8,8 +8,7 @@ var post = {
     },
 
     borrar: function(req, res){
-
-        if (req.session.usuarioLog == req.body.idUsuario) {
+        //if (req.session.usuarioLog.id == req.body.idUsuario){
             var idPostBorrar = req.body.idPost;
 
         db.Post.destroy({
@@ -21,10 +20,10 @@ var post = {
         .then(function(){
             res.redirect("/home")
         })
-        
-        } else {
-            res.redirect("/post/detalle/" + req.body.idPost)
-        }        
+        //} else{
+        //    res.redirect("/post/detalle/" + req.body.idPost)
+        //} 
+          
     },
 
     detalle: function (req, res) {

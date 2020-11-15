@@ -78,6 +78,7 @@ let user = {
                     pregunta: req.body.pregunta,
                     respuesta: req.body.respuesta, 
                     cantidadLengu: req.body.cantLenguajes,
+                    fotoDePerfil: req.body.fotoDePerfil,
                 };
             
                 db.Usuario.create(userRegister)
@@ -118,7 +119,7 @@ let user = {
 
                 if (req.body.recordame != undefined) {
                     //guardo cookie
-                    res.cookie("idUsuario", usuario.id, {expire : new Date() + 10000 * 100});
+                    res.cookie("idUsuario", usuario.id, {expire : new Date() + 100000 * 100});
                 }
                 res.redirect("/home")
             }
@@ -152,6 +153,7 @@ perfilActualizado: function (req, res) {
         contraseña: bcrypt.hashSync(req.body.contra, 10),
         cantidadLengu: req.body.cantLenguajes,
         fechaNacim: req.body.nac,
+        fotoDePerfil: req.body.fotoDePerfil
     }
     
     db.Usuario.update(nuevosDatos, {

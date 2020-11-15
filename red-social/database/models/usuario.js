@@ -33,6 +33,10 @@ module.exports = (sequelize, DataTypes) => {
         
         respuesta:{
             type: DataTypes.STRING,
+        },
+
+        fotoDePerfil:{
+            type: DataTypes.STRING,
         }
     }
 

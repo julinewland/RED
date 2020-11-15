@@ -19,9 +19,9 @@
 <body>
     <%- include("header")%>
     <main>
-      <%if (error != undefined){%>
-       <h2><%=error%></h2>
-      <%} else { }%>
+      <%if (error =! undefined){ %>
+       <h2 class="error">Error: <%=error%></h2>
+      <%}else {}%>
         <div class="contenedor">
             <h1>Ingresá</h1>
       
@@ -46,13 +46,13 @@
             <div class="select-button">
                 <div class="form-group">
                         <label>Recordame:</label>
-                        <input type="checkbox" name="recordame" id="">
+                        <input class="checkbox" type="checkbox" name="recordame" id="">
                 </div>
               </div>
             <div class="select button">
               <button type="submit" class="btn btn-warning btn-lg">Ingresar</button>
-              <a href="/user/registracion">¿No tenes cuenta? Registrate acá.</a>
-              <a href="/user/olvidecontra">¿Olvidaste tu Contraseña?</a>
+              <div class="tag"><a href="/user/registracion">¿No tenes cuenta? Registrate acá.</a></div>
+              <div class="tag"><a href="/user/olvidecontra">¿Olvidaste tu Contraseña?</a></div>
             </div>
       
             </form>

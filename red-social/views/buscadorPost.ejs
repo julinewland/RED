@@ -18,10 +18,10 @@
 
 <body>
     <%- include("header")%>
-    <div class="uk-section uk-section-small">
-        <h2>Buscador de Posts:</h2>
+    <div class="main" class="uk-section uk-section-small">
+        <h2 class="error">Buscador de Posts:</h2>
          <form action="/post/resultado" method="GET">
-             <input type="search" name="busqueda" placeholder="busca palabras claves...">
+             <input type="search" class="buscadorPost" name="busqueda" placeholder="busca palabras claves...">
          </form>   
     </div>
     <%- include("footer")%>
