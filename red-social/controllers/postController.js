@@ -9,15 +9,15 @@ var post = {
 
     borrar: function(req, res){
         //if (req.session.usuarioLog.id == req.body.idUsuario){
-            var idPostBorrar = req.body.idPost;
+        var idPostBorrar = req.body.idPost;
 
         db.Post.destroy({
             where: {
                 id: idPostBorrar
             }
         })
-        
         .then(function(){
+            console.log("funciona");
             res.redirect("/home")
         })
         //} else{

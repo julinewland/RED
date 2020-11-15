@@ -95,3 +95,22 @@ article.detalle-post .imagen-post{
     background-color: #cfff04;
     border: solid;
 }
+
+.postdetalle{
+    padding-top: 100px;
+}
+
+.comentario{
+    width: 180px;
+}
+
+.boton1{
+    background-color: #cfff04;
+    color: black;
+    margin: 10px;
+}
+
+.link{
+    color: #cfff04 ;
+    text-decoration: underline;
+}

@@ -19,13 +19,13 @@
 <body>
     <%- include("header")%>
     <main>
-      <%if (error =! undefined){ %>
-       <h2 class="error">Error: <%=error%></h2>
-      <%}else {}%>
+      <%if (error == true || error == false){ %>
+        <h2 class="error">Bienvenido</h2>
+      <%}else {%>
+        <h2 class="error">Error: <%=error%></h2>
+      <%}%>
         <div class="contenedor">
             <h1>Ingresá</h1>
-      
-            <!-- LOGIN FORM -->
             <form action="/user/login" method="POST">
             <div class="select">
               <div class="form-group">
