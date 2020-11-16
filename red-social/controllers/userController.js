@@ -55,7 +55,12 @@ let user = {
 
     porcesoRegis: function(req,res){
 
-        
+        if(req.session.usuarioLog != undefined){
+           
+            res.redirect("/home")
+
+        } else {
+
         db.Usuario.findAll(
             {
                 where: {
@@ -66,7 +71,7 @@ let user = {
         .then(function(usuario){
             if (usuario.lenght >= 1){
                 error = "Ya hay un usuario logueado con tu mail:"
-                res.send ("registracion", {error: error})
+                res.render("registracion", {error: error})
             
             }else{
                 
@@ -91,6 +96,7 @@ let user = {
                  //   response.render('login', {title: 'login', error: '', success: "Usuario registrado correctamente!"});
                 }
         })
+    }
     },
         
 
@@ -109,8 +115,7 @@ let user = {
                 let error = "usuario incorrecto";
                 
                 res.render("login", {error: error})
-            } else if (req.body.password != usuario.contraseña) {
-            //(bcrypt.compareSync(req.body.password, usuario.constraseña) == false) {
+            } else if (bcrypt.compareSync(req.body.password, usuario.contraseña) == false) {
             let error = "contraseña incorrecta";
             
             res.render("login", {error: error})

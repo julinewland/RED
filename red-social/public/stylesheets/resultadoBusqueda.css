@@ -12,11 +12,13 @@ div.perfil{
 }
 
 div.imagen{
-    margin: 20px;;
+    margin: 20px;
 }
 
 div.imagen img{
     width: 100px;
+    height: 100px;
+    object-fit: cover;
 }
 
 div.nombre-usuario {

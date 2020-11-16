@@ -112,7 +112,7 @@ var post = {
                 })
             
             .then(function(posts){
-                res.render("resultadoPost", {posts: posts})
+                res.render("resultadoPost", {posts: posts, busqueda: busqueda})
             })
 
             

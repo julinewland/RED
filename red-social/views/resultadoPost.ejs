@@ -26,7 +26,9 @@
                      <input type="search" class="buscadorPost" name="busqueda" placeholder="busca palabras claves...">
                  </form>   
             </div>
-        <% } %>
+        <% } else { %>
+                <h2 class="error">#<%=busqueda%></h2>
+        <%} %>
         <div class="uk-section uk-section-small">
             <div class="uk-container uk-container-large uk-flex">
                 <section id="posts" class="uk-flex uk-flex-middle uk-flex-center uk-flex-column uk-child-width-1-2 uk-width-1-1">

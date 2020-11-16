@@ -22,7 +22,7 @@
         <div class="uk-section uk-section-small">
             <div class="contenedor uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center"></div>
             <% if (usuario.length >= 1) { %>
-                <h2>Estos son tus resultados para <%- busqueda %></h2>
+                <h2>Estos son tus resultados para <%= busqueda %>:</h2>
                 <% for( let i = 0; i < usuario.length; i++ ) { %>
                     <a href="/user/detalle/<%=usuario[i].id%>" > 
                         <div class="perfil">

@@ -21,7 +21,7 @@
 <body>
     <%- include("header")%>
     <main>
-        <%if (error == true){ %>
+        <%if (typeof error == "undefined"|| error ==false || error==true ){ %>
                 <h2 class="error">Bienvenido</h2>
         <%}else {%>
                 <h2 class="error">Error: <%=error%></h2>
