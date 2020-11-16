@@ -69,7 +69,7 @@ let user = {
             }
         )
         .then(function(usuario){
-            if (usuario.lenght >= 1){
+            if (usuario.length >= 1){
                 error = "Ya hay un usuario logueado con tu mail:"
                 res.render("registracion", {error: error})
             
@@ -115,6 +115,7 @@ let user = {
                 let error = "usuario incorrecto";
                 
                 res.render("login", {error: error})
+
             } else if (bcrypt.compareSync(req.body.password, usuario.contraseña) == false) {
             let error = "contraseña incorrecta";
             
@@ -174,7 +175,7 @@ perfilActualizado: function (req, res) {
 
 olvideContra: function (req, res) {
 
-    res.render ("olvideContra")
+    res.render("olvideContra")
 },
 
 recuperarContra: function (req,res) {
@@ -185,25 +186,24 @@ recuperarContra: function (req,res) {
                 [op.or]:[{email: usuario}, {nombre: usuario}]
             }
         })
-
+    
     .then (function(usuario) {
-    res.render  ("recuperarContra", {usuario: usuario})
+    res.render ("recuperarContra", {usuario: usuario})
 })},
 
 recuperarContraProceso: function (req,res) {
 
     var respuesta= req.body.respuesta
 
-    db.Usuario.findByPk (req.body.id)
+    db.Usuario.findByPk(req.body.id)
 
     .then (function(usuario){
         if (usuario.respuesta == respuesta){
             req.session.usuarioLog = usuario;
-            res.redirect ("/user/editarPerfil")
+            res.redirect("/user/editarPerfil")
         } else {
-
             error = "respuesta de seguridad incorrecta intenta loguearte devuelta:"
-            res.send ("login", {error: error})
+            res.render("login", {error: error})
         }
            
     })

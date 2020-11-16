@@ -21,18 +21,17 @@
     <main>
         <div class="contenedor">
             <h1>Pregunta y respuesta de seguridad</h1>
-      
-            <!-- LOGIN FORM -->
+            
             <form action="/user/recuperarcontra" method="POST">
-<input type="hidden" value= "<%= usuario.id%>" name="id" >
+            <input type="hidden" value= "<%= usuario.id%>" name="id" >
 
             <div class="select">
               <div class="form-group">
                       <label> <%= usuario.pregunta %> </label>
               </div>
               <div class="form-group">
-                      <input type="text" class="form-control" name="respuesta" placeholder="<%= usuario.pregunta %> ">
-                  </div>
+                      <input type="text" class="form-control" name="respuesta" placeholder="<%=usuario.pregunta%> ">
+                </div>
             </div> 
            <div class="select button">
               <button type="submit" class="btn btn-warning btn-lg">Siguiente</button>

@@ -12,7 +12,6 @@ let resultado = {
                         [op.or]: [{ nombre: { [op.like]: "%" + busqueda + "%"} }, { email: { [op.like]: "%" + busqueda + "%"} }],
                     }
 
-        
                 }
             )
             
